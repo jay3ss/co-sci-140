@@ -1,0 +1,690 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\usepackage{xcolor}
+\usepackage{sectsty}
+
+\definecolor{cerulean}{HTML}{2A52BE}
+\definecolor{processblue}{HTML}{0085CA}
+
+\chapterfont{\color{blue}}  % sets colour of chapters
+\sectionfont{\color{cyan}}  % sets colour of sections
+\subsectionfont{\color{processblue}}  % sets colour of subsections
+\subsubsectionfont{\color{cerulean}}  % sets colour of subsubsections
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Chapter 9 - Pointers"
+\pdf_author "Joshua Saunders"
+\pdf_subject "C++ pointers"
+\pdf_keywords "c++, pointers"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 2
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.75in
+\rightmargin 0.75in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Pointers
+\end_layout
+
+\begin_layout Section
+Getting the Address of a Variable
+\end_layout
+
+\begin_layout Standard
+Every variable of a computer program is allotted a section of memory that's
+ large enough for the variable's data type.
+ See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:memory-allocated-for-some-data-types"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ below for the memory allocated for some common data types.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Memory allocated for some common data types
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:memory-allocated-for-some-data-types"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Data type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Memory allocated (bytes)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+char
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+short
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+int
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+long
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+float
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+double
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To get the address of a variable, the address (&) operator is used.
+ This is not to be confused with & which is used when defining a reference
+ variable.
+ See Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "address-operator-ex-program"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ below for an example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/addressOfOperator.cpp"
+lstparams "language={C++},caption={A simple program that shows how to use the address operator},label={address-operator-ex-program}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pointer Variables
+\end_layout
+
+\begin_layout Standard
+A 
+\emph on
+pointer variable
+\emph default
+, or just 
+\emph on
+pointer
+\emph default
+, is a variable that holds a memory address which can be used to hold the
+ location of some other piece of data.
+ This allows you to indirectly manipulate data stored in other variables.
+ It's similar to working with functions that have parameters that are passed
+ by reference.
+ However, with reference variables C++ automatically handles storing the
+ data into the referenced variable while pointers operate at a lower level
+ and as the programmer you must write the code that assigns the fetches
+ the memory address and assigns the value of the address to a pointer variable.
+ Another caveat of working with pointers is that you must specify that you
+ want to store the data at the memory location referenced by the pointer
+ versus in the pointer itself.
+\end_layout
+
+\begin_layout Standard
+Even though working with pointers seems like more work than using reference
+ variables, it is sometimes the only way to accomplish useful operations
+ such as dynamic memory allocation for example.
+ They also allow you to create variables, arrays, and complex data structures
+ in memory while a program is running.
+\end_layout
+
+\begin_layout Subsection
+Creating and Using Pointer Variables
+\end_layout
+
+\begin_layout Standard
+Pointer variables, or pointers, can be defined in one of two ways, as shown
+ below in Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-initialization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The first pointer, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+pointer1
+\end_layout
+
+\end_inset
+
+, looks like any standard variable initialization except for the preceding
+ asterisk.
+ The second pointer, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+pointer2
+\end_layout
+
+\end_inset
+
+, has the asterisk attached to the 
+\begin_inset listings
+lstparams "language={C++}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int
+\end_layout
+
+\end_inset
+
+ which visually reinforces that this variable is 
+\series bold
+not
+\series default
+ an integer, but rather a 
+\emph on
+pointer to
+\emph default
+ an integer.
+ Both declarations are equivalent however.
+ Note that even though both declarations have the 
+\begin_inset listings
+lstparams "language={C++}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int
+\end_layout
+
+\end_inset
+
+ keyword 
+\series bold
+they are not 
+\series default
+
+\begin_inset listings
+lstparams "language={C++}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int
+\end_layout
+
+\end_inset
+
+
+\series bold
+s
+\series default
+! Rather, they are pointers to 
+\begin_inset listings
+lstparams "language={C++}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int
+\end_layout
+
+\end_inset
+
+ type variables.
+ This distinction is subtle yet important.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerInitialization.cpp"
+lstparams "language={C++},caption={Two ways to initialize pointer variables},label={pointer-initialization}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One thing that Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-initialization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ does not show is 
+\emph on
+good
+\emph default
+ pointer declaration.
+ Pointers should be initialized when declared either to the address of an
+ actual variable or to the 
+\begin_inset listings
+lstparams "language={C++}"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+nullptr
+\end_layout
+
+\end_inset
+
+ special keyword.
+ The reason being that if a pointer is not initialized then you could be
+ affecting an unknown location in memory.
+ Pointers can also be initialized to 
+\family typewriter
+0
+\family default
+ or 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+NULL
+\end_layout
+
+\end_inset
+
+ if you're using an older compiler that doesn't support C++11 or newer.
+ Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "store-print-addresses-with-pointers"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ below shows how to store and print addresses using pointers and below that
+ is the result of the program.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/storePrintAddressesWithPointers.cpp"
+lstparams "language={C++},caption={Storing and printing values and addresses with pointers},label={store-print-addresses-with-pointers}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+The value in x is 25
+\end_layout
+
+\begin_layout Plain Layout
+
+The address of x is 0xffffcc0c
+\end_layout
+
+\begin_layout Plain Layout
+
+The address of nullPtr is 0 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So far, we've only seen how to use pointers to get the address off a variable.
+ Let's see how to use the data at the address using the indirection operator
+ (
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+*
+\end_layout
+
+\end_inset
+
+).
+ When placed in front of a pointer, the indirection operator 
+\emph on
+dereferences
+\emph default
+ the pointer allowing you to work with the data that the pointer is pointing
+ to.
+ Program Listing askl;dfj shows how this works with the output immediately
+ below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/indirectionOperator.cpp"
+lstparams "language={C++},caption={How the indirection operator works},label={indirection-operator}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Here is the value in x, printed twice:
+\end_layout
+
+\begin_layout Plain Layout
+
+25
+\end_layout
+
+\begin_layout Plain Layout
+
+25
+\end_layout
+
+\begin_layout Plain Layout
+
+Once again, here is the value in x:
+\end_layout
+
+\begin_layout Plain Layout
+
+100
+\end_layout
+
+\begin_layout Plain Layout
+
+100 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
