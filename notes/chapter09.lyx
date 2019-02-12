@@ -11,6 +11,7 @@
 
 \definecolor{cerulean}{HTML}{2A52BE}
 \definecolor{processblue}{HTML}{0085CA}
+\definecolor{greengreen}{HTML}{008000}
 
 \chapterfont{\color{blue}}  % sets colour of chapters
 \sectionfont{\color{cyan}}  % sets colour of sections
@@ -96,7 +97,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++}"
+\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++},commentstyle={\color{greengreen}\ttfamily},frame=trbl"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -631,8 +632,17 @@ dereferences
 \emph default
  the pointer allowing you to work with the data that the pointer is pointing
  to.
- Program Listing askl;dfj shows how this works with the output immediately
- below.
+ Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "indirection-operator"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows how this works with the output immediately below.
 \end_layout
 
 \begin_layout Standard
@@ -679,6 +689,243 @@ Once again, here is the value in x:
 \begin_layout Plain Layout
 
 100 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-multi-variables"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows a more complex usage of pointers in which one pointer references
+ different variables and we manipulate those data using the pointer.
+ The output is immediately below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerMultiVars.cpp"
+lstparams "language={C++},caption={Referencing different variables with one pointer},label={pointer-multi-variables}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Here are the values of x, y, and z:
+\end_layout
+
+\begin_layout Plain Layout
+
+25 50 75
+\end_layout
+
+\begin_layout Plain Layout
+
+Once again, here are the values of x, y, and z:
+\end_layout
+
+\begin_layout Plain Layout
+
+125 150 175
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The Relationship Between Arrays and Pointers
+\end_layout
+
+\begin_layout Standard
+An array name without brackets and a subscript represents the starting address
+ of an array which means that 
+\emph on
+the name is really a pointer
+\emph default
+.
+ This can be demonstrated by a simple program, shown in Program Listing
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "array-name-as-pointer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and its output below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/arrayNameAsPointer.cpp"
+lstparams "language={C++},caption={Using an array name as a pointer},label={array-name-as-pointer}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+The first element of the array is 10
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It's possible to access the elements of an array using the array's name
+ as the starting address, or the first element of the array.
+ In addition to using 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+numbers[1]
+\end_layout
+
+\end_inset
+
+ to access the second element of the array we can use 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+*(numbers + 1)
+\end_layout
+
+\end_inset
+
+, which is called 
+\emph on
+pointer notation
+\emph default
+.
+ To access the 
+\family sans
+n-1
+\family default
+ element of the array, you would use 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+*(numbers + n - 1)
+\end_layout
+
+\end_inset
+
+ where 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+n - 1
+\end_layout
+
+\end_inset
+
+ is the 
+\emph on
+size of the data type
+\emph default
+ that the array is holding (which is 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+short
+\end_layout
+
+\end_inset
+
+ in this case) and the subscript.
+ This is an important distinction that you must take care to remember.
+ In other words, you can add the subscript to the name inside of the dereferenci
+ng operator access a particular element (don't forget the parentheses!).
+ Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "process-array-using-pointer-notation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ demonstrates how to process an array using pointer notation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/processArrayUsingPointerNotation.cpp"
+lstparams "language={C++},caption={Processing an array using pointer notation},label={process-array-using-pointer-notation}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Enter 5 numbers: 5 10 20 40 80
+\end_layout
+
+\begin_layout Plain Layout
+
+Here are the numbers you entered:
+\end_layout
+
+\begin_layout Plain Layout
+
+5 10 20 40 80 
 \end_layout
 
 \end_inset

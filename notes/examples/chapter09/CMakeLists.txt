@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.5)
+project(cpp_chapter09)
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(addressOfOperator addressOfOperator.cpp)
+add_executable(storePrintAddressesWithPointers storePrintAddressesWithPointers.cpp)
+add_executable(indirectionOperator indirectionOperator.cpp)
+add_executable(pointerMultiVars pointerMultiVars.cpp)
+add_executable(arrayNameAsPointer arrayNameAsPointer.cpp)
+add_executable(processArrayUsingPointerNotation processArrayUsingPointerNotation.cpp)
