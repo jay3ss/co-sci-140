@@ -43,7 +43,7 @@
 \index_command default
 \float_placement h
 \paperfontsize 12
-\spacing single
+\spacing onehalf
 \use_hyperref true
 \pdf_title "Chapter 9 - Pointers"
 \pdf_author "Joshua Saunders"
@@ -926,6 +926,63 @@ Here are the numbers you entered:
 \begin_layout Plain Layout
 
 5 10 20 40 80 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Surprisingly (or perhaps not), you can use subscripts with pointers and
+ pointer notation with arrays! Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-subscripts"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ below shows a program that does just that with the output of the program
+ below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerSubscripts.cpp"
+lstparams "language={C++},caption={Processing an array using pointer notation},label={pointer-subscripts}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Here are the values in the coins array:
+\end_layout
+
+\begin_layout Plain Layout
+
+0.5 0.1 0.25 0.5 1
+\end_layout
+
+\begin_layout Plain Layout
+
+And here they are again:
+\end_layout
+
+\begin_layout Plain Layout
+
+0.5 0.1 0.25 0.5 1
 \end_layout
 
 \end_inset
