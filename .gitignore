@@ -40,6 +40,8 @@
 # Temporary #*.lyx# files
 \#*#
 
+# VSCode workspace settings
+.vscode/
 
 CMakeLists.txt.user
 CMakeCache.txt
