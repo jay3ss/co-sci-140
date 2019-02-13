@@ -97,7 +97,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++},commentstyle={\color{greengreen}\ttfamily},frame=trbl"
+\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++},commentstyle={\color{greengreen}\ttfamily},frame=tbl"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -753,7 +753,7 @@ Once again, here are the values of x, y, and z:
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 The Relationship Between Arrays and Pointers
 \end_layout
 
@@ -983,6 +983,683 @@ And here they are again:
 \begin_layout Plain Layout
 
 0.5 0.1 0.25 0.5 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the address operator doesn't need to be used to get the address
+ of an array.
+ It can, however, be used to get the address of the elements of an array.
+ Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "array-element-addresses"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ below shows a program that does just that with the output of the program
+ below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/arrayElementAddresses.cpp"
+lstparams "language={C++},caption={Using a pointer to display data in an array},label={array-element-addresses}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Here are the values in the coins array:
+\end_layout
+
+\begin_layout Plain Layout
+
+0.05 0.1 0.25 0.5 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Keep in mind that there is one difference between pointers and arrays: the
+ address an array name points to 
+\emph on
+cannot be changed
+\emph default
+ (they're 
+\emph on
+pointer constants
+\emph default
+).
+\end_layout
+
+\begin_layout Section
+Pointer Arithmetic
+\end_layout
+
+\begin_layout Standard
+The contents of a pointer variable can be manipulated using addition and
+ subtraction.
+ For instance, Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-increment-and-decrement"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows how a pointer of type 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int
+\end_layout
+
+\end_inset
+
+ is incremented and decremented and is used to display the contents of an
+ array.
+ When incrementing or decrementing a pointer, the s
+\emph on
+ize of the type that pointer is pointing to
+\emph default
+ is added to the pointer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerIncrementDecrement.cpp"
+lstparams "language={C++},caption={Incrementing and decrementing a pointer},label={pointer-increment-and-decrement}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+The numbers in the set are:
+\end_layout
+
+\begin_layout Plain Layout
+
+5 10 15 20 25 30 35 40
+\end_layout
+
+\begin_layout Plain Layout
+
+The numbers in the set backward are:
+\end_layout
+
+\begin_layout Plain Layout
+
+40 35 30 25 20 15 10 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With pointers, we can
+\end_layout
+
+\begin_layout Itemize
+use the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+++
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+--
+\end_layout
+
+\end_inset
+
+ operators to increment and decrement
+\end_layout
+
+\begin_layout Itemize
+add or subtract integers to and from a pointer using the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
++
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+-
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
++=
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+-=
+\end_layout
+
+\end_inset
+
+ operators
+\end_layout
+
+\begin_layout Itemize
+subtract one pointer from another
+\end_layout
+
+\begin_layout Section
+Initializing Pointers
+\end_layout
+
+\begin_layout Standard
+Pointers point to a specific data type and must therefore only be used with
+ that data type type.
+ Below are lists of examples of legal and illegal pointer initializations.
+\end_layout
+
+\begin_layout Subsection*
+Legal Pointer Initializations
+\end_layout
+
+\begin_layout Standard
+Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "legal-pointer-initializations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives examples of legal initializations of pointers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/legalPointerInits.cpp"
+lstparams "language={C++},caption={Legal pointer initializations},label={legal-pointer-initializations}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Illegal Pointer Initializations
+\end_layout
+
+\begin_layout Standard
+Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "illegal-pointer-initializations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives examples of illegal initializations of pointers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/legalPointerInits.cpp"
+lstparams "language={C++},caption={Illegal pointer initializations},label={illegal-pointer-initializations}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Comparing Pointers
+\end_layout
+
+\begin_layout Standard
+Pointers can be compared using C++'s relational operators (
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+<
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+>
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+==
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+!=
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+<=
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+>=
+\end_layout
+
+\end_inset
+
+).
+ Elements in arrays are stored in consecutive order in memory which means
+ that the address of the first element is less than address of the second
+ element.
+ You can use this to make sure that you don't step out of the bounds of
+ an array.
+ Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-comparison"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ initializes a pointer to the start of an array then proceeds to step through
+ each element forwards until it reaches the address of the last element
+ and then backwards until it reaches the address of the first element.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerComparison.cpp"
+lstparams "language={C++},caption={Comparing pointers},label={pointer-comparison}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+The numbers in set are:
+\end_layout
+
+\begin_layout Plain Layout
+
+5 10 15 20 25 30 35 40
+\end_layout
+
+\begin_layout Plain Layout
+
+The numbers in set backward are:
+\end_layout
+
+\begin_layout Plain Layout
+
+40 35 30 25 20 15 10 5
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Pointers as Function Parameters
+\end_layout
+
+\begin_layout Standard
+Pointers can be used as function parameters which gives the function access
+ to the original argument, similar to reference parameters.
+ An example of a function that uses a pointer parameter and how to call
+ it is given below in Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-function-parameter-simple"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerFunctionParamSimple.cpp"
+lstparams "language={C++},caption={A function with a pointer as a parameter and how to call it},label={pointer-function-parameter-simple}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A more complete example is given in Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-function-parameter-complex"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerFunctionParamComplex.cpp"
+lstparams "language={C++},caption={A function with a pointer as a parameter and how to call it},label={pointer-function-parameter-complex}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Enter an integer number: 37
+\end_layout
+
+\begin_layout Plain Layout
+
+That value doubled is 74
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pointers may be used as a parameter to accept the address of an array.
+ Program Listing BLAH below demonstrates this.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerFunctionParamArrayAddress.cpp"
+lstparams "language={C++},caption={Pointer function parameter that accepts the address of an array},label={pointer-function-paramete-rarray}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Enter the sales figure for quarter 1: 10263.98
+\end_layout
+
+\begin_layout Plain Layout
+
+Enter the sales figure for quarter 2: 12369.69
+\end_layout
+
+\begin_layout Plain Layout
+
+Enter the sales figure for quarter 3: 11542.13
+\end_layout
+
+\begin_layout Plain Layout
+
+Enter the sales figure for quarter 4: 14792.06
+\end_layout
+
+\begin_layout Plain Layout
+
+The total sales for the year are $48967.86
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Pointers to Constants
+\end_layout
+
+\begin_layout Standard
+Sometimes it's necessary to pass a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+'s address into a pointer.
+ In order to do this, the pointer must also be declared as a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ as well.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:using-a-const-pointer-func-param"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ explains how the semantics of a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ pointer as function parameter works.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename constPointerFuncParam.PNG
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Using a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ pointer as a function parameter
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:using-a-const-pointer-func-param"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
