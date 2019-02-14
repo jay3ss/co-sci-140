@@ -97,7 +97,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++},commentstyle={\color{greengreen}\ttfamily},frame=tbl"
+\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++},commentstyle={\color{greengreen}\ttfamily},frame=tbl,numbers=left"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -503,7 +503,7 @@ int
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerInitialization.cpp"
-lstparams "language={C++},caption={Two ways to initialize pointer variables},label={pointer-initialization}"
+lstparams "language={C++},numbers=none,caption={Two ways to initialize pointer variables},label={pointer-initialization}"
 
 \end_inset
 
@@ -587,6 +587,7 @@ lstparams "language={C++},caption={Storing and printing values and addresses wit
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -658,6 +659,7 @@ lstparams "language={C++},caption={How the indirection operator works},label={in
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -725,6 +727,7 @@ lstparams "language={C++},caption={Referencing different variables with one poin
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -910,6 +913,7 @@ lstparams "language={C++},caption={Processing an array using pointer notation},l
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -962,6 +966,7 @@ lstparams "language={C++},caption={Processing an array using pointer notation},l
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -1021,6 +1026,7 @@ lstparams "language={C++},caption={Using a pointer to display data in an array},
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -1103,6 +1109,7 @@ lstparams "language={C++},caption={Incrementing and decrementing a pointer},labe
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -1398,6 +1405,7 @@ lstparams "language={C++},caption={Comparing pointers},label={pointer-comparison
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -1485,6 +1493,7 @@ lstparams "language={C++},caption={A function with a pointer as a parameter and 
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -1521,6 +1530,7 @@ lstparams "language={C++},caption={Pointer function parameter that accepts the a
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -1570,6 +1580,7 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -1590,6 +1601,7 @@ could have been shortened to
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -1690,7 +1702,7 @@ const
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:using-a-const-pointer"
+reference "fig:pointer-to-a-constant"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1788,7 +1800,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Explanation of a 
+Explanation of pointer to a 
 \begin_inset listings
 inline true
 status open
@@ -1800,10 +1812,10 @@ const
 
 \end_inset
 
- pointer
+
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:using-a-const-pointer"
+name "fig:pointer-to-a-constant"
 
 \end_inset
 
@@ -1880,6 +1892,7 @@ lstparams "language={C++},caption={Pointer function parameter that accepts the a
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -2020,6 +2033,7 @@ Here's how to declare a constant pointer
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "numbers=none"
 inline false
 status open
 
@@ -2060,6 +2074,408 @@ after
  error will result.
  However, no error will happen if we attempt to change the data that's at
  the address.
+ This because the pointer itself is constant, the data that it points to
+ isn't.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:constant-pointer"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ explains the semantics of declaring a constant pointer.
+ Remember that because a constant pointer cannot be changed, it must be
+ initialized with an initial value.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename constPointer.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Explanation of a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ pointer
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:constant-pointer"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Constant Pointers to Constants
+\end_layout
+
+\begin_layout Standard
+It's also possible to have constant pointers that point to constants.
+ See the example below and Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:constant-pointer-to-a-constant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for an example and an explanation of the semantics, respectively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "numbers=none"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int const value = 22;
+\end_layout
+
+\begin_layout Plain Layout
+
+int * const ptr = &value;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename constPointerToConst.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Explanation of a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ pointer
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:constant-pointer-to-a-constant"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Focus on Software Engineering: Dynamic Memory Allocation
+\end_layout
+
+\begin_layout Standard
+Dynamic memory allocation allows the creation of variables during the execution
+ of a program.
+ This is only possible through the use of pointers.
+ When a variable is created on the fly, the program asks the computer to
+ set aside enough memory to hold that variable and is given the starting
+ address of that chunk of memory that the computer set aside for that newly
+ created variable.
+ That chunk of memory is only accessible through its address which is why
+ pointers are a necessity.
+\end_layout
+
+\begin_layout Standard
+To dynamically allocate memory, we use the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+new
+\end_layout
+
+\end_inset
+
+ operator, as shown below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "numbers=none"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int *iptr = nullptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+iptr = new int;
+\end_layout
+
+\end_inset
+
+The line with the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+new
+\end_layout
+
+\end_inset
+
+ operator requests that the computer allocate enough memory to hold an 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int
+\end_layout
+
+\end_inset
+
+ and the pointer 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+iptr
+\end_layout
+
+\end_inset
+
+ will hold the starting address of the allocated memory.
+\end_layout
+
+\begin_layout Standard
+An very useful way to use dynamic memory allocation is with arrays of unknown
+ size.
+ An example of how to dynamically allocate memory for an array is given
+ below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "numbers=none"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int *aptr = nullptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+aptr = new int[100];
+\end_layout
+
+\end_inset
+
+Now, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+iptr
+\end_layout
+
+\end_inset
+
+ will hold the starting address of the allocated memory for an 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+int
+\end_layout
+
+\end_inset
+
+ array with 100 elements.
+ If the computer cannot allocate enough memory, then an exception will be
+ thrown (Chapter 16).
+\end_layout
+
+\begin_layout Standard
+When a program is finished with the allocated memory, the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+delete
+\end_layout
+
+\end_inset
+
+ operator is used to free up any memory that was allocated using 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+new
+\end_layout
+
+\end_inset
+
+.
+ If you don't free up allocated memory then your program will have a 
+\emph on
+memory leak
+\emph default
+.
+ Also, only use 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+delete
+\end_layout
+
+\end_inset
+
+ with pointers that were declared using 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+new
+\end_layout
+
+\end_inset
+
+.
+ Otherwise, you're going to have some unexpected problems.
+ Use of the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+delete
+\end_layout
+
+\end_inset
+
+ operator is given below.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "numbers=none"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+delete *iptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+delete [] aptr;
+\end_layout
+
+\begin_layout Plain Layout
+
+// [] must be placed between delete and aptr for arrays
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
