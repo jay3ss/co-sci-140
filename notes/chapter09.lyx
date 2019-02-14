@@ -837,8 +837,8 @@ pointer notation
 \emph default
 .
  To access the 
-\family sans
-n-1
+\family typewriter
+n - 1
 \family default
  element of the array, you would use 
 \begin_inset listings
@@ -1512,7 +1512,7 @@ Pointers may be used as a parameter to accept the address of an array.
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerFunctionParamArrayAddress.cpp"
-lstparams "language={C++},caption={Pointer function parameter that accepts the address of an array},label={pointer-function-paramete-rarray}"
+lstparams "language={C++},caption={Pointer function parameter that accepts the address of an array},label={pointer-function-parameter-rarray}"
 
 \end_inset
 
@@ -1554,6 +1554,108 @@ The total sales for the year are $48967.86
 
 \end_layout
 
+\begin_layout Standard
+Note that in Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-function-parameter-rarray"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sum += *arr;
+\end_layout
+
+\begin_layout Plain Layout
+
+arr++;
+\end_layout
+
+\end_inset
+
+could have been shortened to
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+sum += *arr++;
+\end_layout
+
+\end_inset
+
+.
+ This is, in my opinion, harder to read because it requires me to correctly
+ apply the precedence of each operator involved in that compound statement.
+ First, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+arr
+\end_layout
+
+\end_inset
+
+ is dereferenced, then the value pointed to by 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+arr
+\end_layout
+
+\end_inset
+
+ is added to the current value of 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+sum
+\end_layout
+
+\end_inset
+
+, and finally 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+arr
+\end_layout
+
+\end_inset
+
+ is incremented.
+ The surface area for failure of understanding is too large for my tastes.
+ Simpler is better.
+\end_layout
+
 \begin_layout Subsection*
 Pointers to Constants
 \end_layout
@@ -1588,7 +1690,7 @@ const
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:using-a-const-pointer-func-param"
+reference "fig:using-a-const-pointer"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1608,6 +1710,61 @@ const
 \end_inset
 
  pointer as function parameter works.
+ In the figure below, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ is applied to what 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+rates
+\end_layout
+
+\end_inset
+
+ points to 
+\emph on
+not
+\emph default
+ 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+rates
+\end_layout
+
+\end_inset
+
+ itself.
+ Therefore, 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+rates
+\end_layout
+
+\end_inset
+
+ can be changed (i.e., be made to point to something else) while what it points
+ to cannot.
 \end_layout
 
 \begin_layout Standard
@@ -1631,7 +1788,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Using a 
+Explanation of a 
 \begin_inset listings
 inline true
 status open
@@ -1643,10 +1800,10 @@ const
 
 \end_inset
 
- pointer as a function parameter
+ pointer
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:using-a-const-pointer-func-param"
+name "fig:using-a-const-pointer"
 
 \end_inset
 
@@ -1665,6 +1822,244 @@ name "fig:using-a-const-pointer-func-param"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Something of interest is that nonconstant arguments can be passed to a function
+ in which a parameter was declared as a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+.
+ This prevents the argument from accidentally being changed.
+ This means that it's a good idea to declare the parameter as a pointer
+ to 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+.
+ See Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-const-parameter"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for an example.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/pointerFunctionConstParam.cpp"
+lstparams "language={C++},caption={Pointer function parameter that accepts the address of an array},label={pointer-const-parameter}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+1 2 3 4 5 6
+\end_layout
+
+\begin_layout Plain Layout
+
+2 4 6 8 10 12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This behavior has some good, practical use.
+ If you are writing a function that takes a pointer as a parameter and the
+ function doesn't modify the contents that pointer is pointing to then declare
+ the pointer parameter as a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ that way you are guaranteed to not inadvertently modify the data.
+\end_layout
+
+\begin_layout Subsection*
+Constant Pointers
+\end_layout
+
+\begin_layout Standard
+Not only can we create pointers to 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+, we can also declare pointers to be 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ as well.
+ In this case, we cannot change what the pointer is pointing to.
+ The difference between a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ pointer and a pointer to a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+pointer to a 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+: the data that the pointer points to cannot change, but the pointer itself
+ can
+\end_layout
+
+\begin_layout Itemize
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ pointer: the pointer itself cannot be changed.
+ Once the pointer is initialized with an address, it can't point to anything
+ else.
+ The data that it points to, however, 
+\emph on
+can
+\emph default
+ change
+\end_layout
+
+\begin_layout Standard
+Here's how to declare a constant pointer
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int value = 22;
+\end_layout
+
+\begin_layout Plain Layout
+
+int * const ptr = &value;
+\end_layout
+
+\end_inset
+
+Notice how the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+const
+\end_layout
+
+\end_inset
+
+ comes 
+\emph on
+after
+\emph default
+ the 
+\family typewriter
+*
+\family default
+.
+ If any attempt is made to change what address the pointer points to a compiler
+ error will result.
+ However, no error will happen if we attempt to change the data that's at
+ the address.
 \end_layout
 
 \end_body
