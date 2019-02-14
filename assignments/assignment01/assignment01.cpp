@@ -17,7 +17,7 @@
 double averageScore(const double *, int);
 void displayResults(const double *, int, double);
 void sortAscending(double *, int);
-bool validateScore(double);
+bool validScore(double);
 
 int main()
 {
@@ -45,6 +45,8 @@ int main()
         scoresCount++;
     }
 
+    delete [] scores;
+    scores = nullptr;
     return 0;
 }
 
@@ -57,7 +59,7 @@ void displayResults(const double *arr, int size, double average)
 void sortAscending(double *arr, int size)
 {
     // Implements the selection sort algorithm to sort
-    // arr in ascending order (chapter 8)
+    // arr in ascending order (chapter 8, section 3)
     int startScan, minIndex, minValue;
 
     for (int startScan = 0; startScan < (size - 1); startScan)
@@ -77,7 +79,7 @@ void sortAscending(double *arr, int size)
     }
 }
 
-bool validateScore(double score)
+bool validScore(double score)
 {
     // Returns true if score is greater than or equal to zero.
     // Returns false otherwise
