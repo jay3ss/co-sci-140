@@ -12,6 +12,8 @@
 \definecolor{cerulean}{HTML}{2A52BE}
 \definecolor{processblue}{HTML}{0085CA}
 \definecolor{greengreen}{HTML}{008000}
+%\definecolor{lightblue}{HTML}{ADD8E6}
+\definecolor{lightblue}{HTML}{D4EBF2}
 
 \chapterfont{\color{blue}}  % sets colour of chapters
 \sectionfont{\color{cyan}}  % sets colour of sections
@@ -97,7 +99,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++},commentstyle={\color{greengreen}\ttfamily},frame=tbl,numbers=left"
+\listings_params "basicstyle={\ttfamily},commentstyle={\color{green}\ttfamily},keywordstyle={\color{blue}\ttfamily},morecomment={[l][\color{magenta}]{\#}},stringstyle={\color{red}\ttfamily},showstringspaces=false,language={C++},commentstyle={\color{greengreen}\ttfamily},frame=tlb,breaklines=true"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -340,7 +342,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/addressOfOperator.cpp"
-lstparams "language={C++},caption={A simple program that shows how to use the address operator},label={address-operator-ex-program}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={A simple program that shows how to use the address operator},label={address-operator-ex-program}"
 
 \end_inset
 
@@ -503,7 +505,7 @@ int
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerInitialization.cpp"
-lstparams "language={C++},numbers=none,caption={Two ways to initialize pointer variables},label={pointer-initialization}"
+lstparams "language={C++},numbers=none,basicstyle={\\ttfamily\\footnotesize},caption={Two ways to initialize pointer variables},label={pointer-initialization}"
 
 \end_inset
 
@@ -578,7 +580,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/storePrintAddressesWithPointers.cpp"
-lstparams "language={C++},caption={Storing and printing values and addresses with pointers},label={store-print-addresses-with-pointers}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Storing and printing values and addresses with pointers},label={store-print-addresses-with-pointers}"
 
 \end_inset
 
@@ -587,7 +589,7 @@ lstparams "language={C++},caption={Storing and printing values and addresses wit
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -650,7 +652,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/indirectionOperator.cpp"
-lstparams "language={C++},caption={How the indirection operator works},label={indirection-operator}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={How the indirection operator works},label={indirection-operator}"
 
 \end_inset
 
@@ -659,7 +661,7 @@ lstparams "language={C++},caption={How the indirection operator works},label={in
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -718,7 +720,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerMultiVars.cpp"
-lstparams "language={C++},caption={Referencing different variables with one pointer},label={pointer-multi-variables}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Referencing different variables with one pointer},label={pointer-multi-variables}"
 
 \end_inset
 
@@ -727,7 +729,7 @@ lstparams "language={C++},caption={Referencing different variables with one poin
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -785,7 +787,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/arrayNameAsPointer.cpp"
-lstparams "language={C++},caption={Using an array name as a pointer},label={array-name-as-pointer}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Using an array name as a pointer},label={array-name-as-pointer}"
 
 \end_inset
 
@@ -794,6 +796,7 @@ lstparams "language={C++},caption={Using an array name as a pointer},label={arra
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "basicstyle={\footnotesize\ttfamily},backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -904,7 +907,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/processArrayUsingPointerNotation.cpp"
-lstparams "language={C++},caption={Processing an array using pointer notation},label={process-array-using-pointer-notation}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Processing an array using pointer notation},label={process-array-using-pointer-notation}"
 
 \end_inset
 
@@ -913,7 +916,7 @@ lstparams "language={C++},caption={Processing an array using pointer notation},l
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -957,7 +960,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerSubscripts.cpp"
-lstparams "language={C++},caption={Processing an array using pointer notation},label={pointer-subscripts}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Processing an array using pointer notation},label={pointer-subscripts}"
 
 \end_inset
 
@@ -966,7 +969,7 @@ lstparams "language={C++},caption={Processing an array using pointer notation},l
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -1017,7 +1020,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/arrayElementAddresses.cpp"
-lstparams "language={C++},caption={Using a pointer to display data in an array},label={array-element-addresses}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Using a pointer to display data in an array},label={array-element-addresses}"
 
 \end_inset
 
@@ -1026,7 +1029,7 @@ lstparams "language={C++},caption={Using a pointer to display data in an array},
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -1100,7 +1103,7 @@ ize of the type that pointer is pointing to
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerIncrementDecrement.cpp"
-lstparams "language={C++},caption={Incrementing and decrementing a pointer},label={pointer-increment-and-decrement}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Incrementing and decrementing a pointer},label={pointer-increment-and-decrement}"
 
 \end_inset
 
@@ -1109,7 +1112,7 @@ lstparams "language={C++},caption={Incrementing and decrementing a pointer},labe
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -1258,7 +1261,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/legalPointerInits.cpp"
-lstparams "language={C++},caption={Legal pointer initializations},label={legal-pointer-initializations}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Legal pointer initializations},label={legal-pointer-initializations}"
 
 \end_inset
 
@@ -1287,7 +1290,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/legalPointerInits.cpp"
-lstparams "language={C++},caption={Illegal pointer initializations},label={illegal-pointer-initializations}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Illegal pointer initializations},label={illegal-pointer-initializations}"
 
 \end_inset
 
@@ -1396,7 +1399,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerComparison.cpp"
-lstparams "language={C++},caption={Comparing pointers},label={pointer-comparison}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Comparing pointers},label={pointer-comparison}"
 
 \end_inset
 
@@ -1405,7 +1408,7 @@ lstparams "language={C++},caption={Comparing pointers},label={pointer-comparison
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -1459,7 +1462,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerFunctionParamSimple.cpp"
-lstparams "language={C++},caption={A function with a pointer as a parameter and how to call it},label={pointer-function-parameter-simple}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={A function with a pointer as a parameter and how to call it},label={pointer-function-parameter-simple}"
 
 \end_inset
 
@@ -1484,7 +1487,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerFunctionParamComplex.cpp"
-lstparams "language={C++},caption={A function with a pointer as a parameter and how to call it},label={pointer-function-parameter-complex}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={A function with a pointer as a parameter and how to call it},label={pointer-function-parameter-complex}"
 
 \end_inset
 
@@ -1493,7 +1496,7 @@ lstparams "language={C++},caption={A function with a pointer as a parameter and 
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -1514,14 +1517,24 @@ That value doubled is 74
 
 \begin_layout Standard
 Pointers may be used as a parameter to accept the address of an array.
- Program Listing BLAH below demonstrates this.
+ Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "pointer-function-parameter-array"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ below demonstrates this.
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerFunctionParamArrayAddress.cpp"
-lstparams "language={C++},caption={Pointer function parameter that accepts the address of an array},label={pointer-function-parameter-rarray}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Pointer function parameter that accepts the address of an array},label={pointer-function-parameter-array}"
 
 \end_inset
 
@@ -1530,7 +1543,7 @@ lstparams "language={C++},caption={Pointer function parameter that accepts the a
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -1568,7 +1581,7 @@ The total sales for the year are $48967.86
 Note that in Program Listing 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "pointer-function-parameter-rarray"
+reference "pointer-function-parameter-array"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1580,7 +1593,7 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "basicstyle={\footnotesize\ttfamily},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -1601,7 +1614,7 @@ could have been shortened to
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -1883,7 +1896,7 @@ noprefix "false"
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "examples/chapter09/pointerFunctionConstParam.cpp"
-lstparams "language={C++},caption={Pointer function parameter that accepts the address of an array},label={pointer-const-parameter}"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={Pointer function parameter that accepts the address of an array},label={pointer-const-parameter}"
 
 \end_inset
 
@@ -1892,7 +1905,7 @@ lstparams "language={C++},caption={Pointer function parameter that accepts the a
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -2033,7 +2046,7 @@ Here's how to declare a constant pointer
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -2165,7 +2178,7 @@ noprefix "false"
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -2271,7 +2284,7 @@ new
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -2335,7 +2348,7 @@ An very useful way to use dynamic memory allocation is with arrays of unknown
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -2454,7 +2467,7 @@ delete
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "numbers=none"
+lstparams "basicstyle={\ttfamily\footnotesize}"
 inline false
 status open
 
@@ -2476,6 +2489,208 @@ delete [] aptr;
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Program Listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "dynamic-memory-allocation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ demonstrates how to use the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+new
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+delete
+\end_layout
+
+\end_inset
+
+ operators to dynamically allocate memory to create an array of user specified
+ size and to free the allocated memory, respectively.
+ Notice that at the end of the program that the allocated memory is freed
+ using 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+delete
+\end_layout
+
+\end_inset
+
+.
+ Then, the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+sales
+\end_layout
+
+\end_inset
+
+ pointer is assigned to the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+nullptr
+\end_layout
+
+\end_inset
+
+.
+ This is for two reasons
+\end_layout
+
+\begin_layout Enumerate
+it's a good practice to ensure that the pointer isn't used to access the
+ now freed memory
+\end_layout
+
+\begin_layout Enumerate
+it prevents errors from occurring if 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+delete
+\end_layout
+
+\end_inset
+
+ is used on the pointer again (
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+delete
+\end_layout
+
+\end_inset
+
+ doesn't throw errors when used on the 
+\begin_inset listings
+inline true
+status open
+
+\begin_layout Plain Layout
+
+nullptr
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "examples/chapter09/dynamicMemAlloc.cpp"
+lstparams "language={C++},basicstyle={\\ttfamily\\footnotesize},caption={How to use new and delete with dynamic memory allocation},label={dynamic-memory-allocation}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "backgroundcolor={\color{lightblue}},basicstyle={\ttfamily\footnotesize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+How many days of sales figures do you wish to process? 5
+\end_layout
+
+\begin_layout Plain Layout
+
+Day 1: 898.63
+\end_layout
+
+\begin_layout Plain Layout
+
+Day 2: 652.32
+\end_layout
+
+\begin_layout Plain Layout
+
+Day 3: 741.85
+\end_layout
+
+\begin_layout Plain Layout
+
+Day 4: 852.96
+\end_layout
+
+\begin_layout Plain Layout
+
+Day 5: 921.37
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Total sales: $4067.13
+\end_layout
+
+\begin_layout Plain Layout
+
+Average sales: $813.43
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Focus on Software Engineering: Returning Pointers From Functions
+\end_layout
+
+\begin_layout Section
+Using Smart Pointers to Avoid Memory Leaks
 \end_layout
 
 \end_body
