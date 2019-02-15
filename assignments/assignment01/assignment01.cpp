@@ -8,61 +8,115 @@
 // Another function should be called that calculates the average score.The
 // program should display the sorted list of scores and averages with appropriate
 // headings. Use pointer notation rather than array notation whenever possible.
-// 
+//
 // Input Validation: Do not accept negative numbers for test scores.
+//
+// Pseudocode (very high-level):
+// 1. Ask user how many grades they want to enter
+//      a. Validate input: make sure that the number of grades >= 0
+// 2. Create an array that's the same size as the number of grades to be entered
+//      a. Validate input: make sure that grades are only >= 0
+// 3. Sort the array in ascending order
+// 4. Find the average of the test scores
+// 5. Display the test scores (sorted in ascending order) and average score
+//      a. Only show two decimal places
 
 #include <iostream>
+#include <iomanip>
 
 // Function prototypes
-double averageScore(const double *, int);
+double calcAverage(const double *, int);
 void displayResults(const double *, int, double);
 void sortAscending(double *, int);
-bool validScore(double);
+bool isNegative(double);
 
 int main()
 {
     double *scores = nullptr;
-    int numScores = -1;
+    int numScores = 0;
 
-    std::cout << "How many test scores will you enter? ";
-    while (numScores < 0)
+    std::cout << "\nHow many test scores will you enter? ";
+    do
     {
         std::cin >> numScores;
 
-        if (numScores < 0)
+        if (isNegative(numScores))
         {
             std::cout << "The number cannot be negative.\nEnter another number: ";
         }
-    }
-    
+    } while (numScores < 0);
+
     int scoresCount = 0;
     scores = new double[numScores];
-
+    double score = 0.0;
 
     while (scoresCount < numScores)
     {
+        std::cout << "Enter test score " << scoresCount + 1 << ": ";
+        std::cin >> score;
 
+        while (isNegative(score))
+        {
+            std::cout << "Negative scores are not allowed.\nEnter another score for this test: ";
+            std::cin >> score;
+        }
+
+        *(scores + scoresCount) = score;
         scoresCount++;
     }
+    
+    sortAscending(scores, numScores);
+    double averageScore = calcAverage(scores, numScores);
+    displayResults(scores, numScores, averageScore);
 
     delete [] scores;
     scores = nullptr;
     return 0;
 }
 
-double averageScore(const double *arr, int size)
-{}
+double calcAverage(const double *arr, int size)
+{
+    // Returns the average of the 
+    double total = 0.0;
+    for (int i = 0; i < size; i++)
+    {
+        total += *(arr + i);
+    }
+    return total / ((double) size);
+}
 
 void displayResults(const double *arr, int size, double average)
-{}
+{
+    // Displays the array (arr) and the average (average) as follows:
+    // 
+    // The test scores in ascending order, and their average, are:
+    //
+    // Score
+    // -----
+    //
+    // 82.30
+    // 84.70
+    // 97.50
+    //
+    // Average score: 88.17
+    std::cout << std::fixed << std::showpoint << std::setprecision(2);
+    std::cout << "\nThe test scores in ascending order, and their average, are:\n\n"
+              << " Score\n -----\n\n";
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << " " << *(arr + i) << std::endl;
+    }
+    std::cout << "\nAverage score: " << average;
+}
 
 void sortAscending(double *arr, int size)
 {
     // Implements the selection sort algorithm to sort
     // arr in ascending order (chapter 8, section 3)
-    int startScan, minIndex, minValue;
+    int startScan, minIndex;
+    double minValue;
 
-    for (int startScan = 0; startScan < (size - 1); startScan)
+    for (int startScan = 0; startScan < (size - 1); startScan++)
     {
         minIndex = startScan;
         minValue = *(arr + startScan);
@@ -79,9 +133,8 @@ void sortAscending(double *arr, int size)
     }
 }
 
-bool validScore(double score)
+bool isNegative(double score)
 {
-    // Returns true if score is greater than or equal to zero.
-    // Returns false otherwise
-    return score >= 0;
+    // Returns true if negative, returns false otherwise
+    return score < 0;
 }

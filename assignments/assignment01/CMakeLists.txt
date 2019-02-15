@@ -3,3 +3,4 @@ project(assignment01)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(assignment01 assignment01.cpp)
+add_executable(testStuff testStuff.cpp)
