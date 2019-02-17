@@ -1,20 +1,23 @@
 // Joshua Saunders
 // CO SCI 140 (Section 15029) - Assignment 01
 // Due February 17, 2019
+// 
 // Prompt:
 // Write a program that dynamically allocates an array large enough to hold a
 // user-defined number of test scores. Once all the scores are entered, the
 // array should be passed to a function that sorts them in ascending order.
-// Another function should be called that calculates the average score.The
-// program should display the sorted list of scores and averages with appropriate
-// headings. Use pointer notation rather than array notation whenever possible.
+// Another function should be called that calculates the average score. The
+// program should display the sorted list of scores and averages with
+// appropriate headings. Use pointer notation rather than array notation 
+// whenever possible.
 //
 // Input Validation: Do not accept negative numbers for test scores.
 //
-// Pseudocode (very high-level):
+// 10,000 ft. view:
 // 1. Ask user how many grades they want to enter
 //      a. Validate input: make sure that the number of grades >= 0
-// 2. Create an array that's the same size as the number of grades to be entered
+// 2. Create an array that's the same size as the number of grades to be 
+//    entered
 //      a. Validate input: make sure that grades are only >= 0
 // 3. Sort the array in ascending order
 // 4. Find the average of the test scores
@@ -35,6 +38,8 @@ int main()
     double *scores = nullptr;
     int numScores = 0;
 
+    // Get the number of scores from the user, making sure to
+    // not allow a negative number of scores
     std::cout << "\nHow many test scores will you enter? ";
     do
     {
@@ -46,10 +51,12 @@ int main()
         }
     } while (numScores < 0);
 
-    int scoresCount = 0;
     scores = new double[numScores];
+    int scoresCount = 0;
     double score = 0.0;
 
+    // Get the scores from the user, making sure that no negative
+    // scores are entered
     while (scoresCount < numScores)
     {
         std::cout << "Enter test score " << scoresCount + 1 << ": ";
@@ -57,18 +64,23 @@ int main()
 
         while (isNegative(score))
         {
-            std::cout << "Negative scores are not allowed.\nEnter another score for this test: ";
+            std::cout << "Negative scores are not allowed.\n"
+                      << "Enter another score for this test: ";
             std::cin >> score;
         }
 
         *(scores + scoresCount) = score;
         scoresCount++;
     }
-    
+
+    // Sort the scores array (in ascending order), find the average
+    // score, then display the results
     sortAscending(scores, numScores);
     double averageScore = calcAverage(scores, numScores);
     displayResults(scores, numScores, averageScore);
 
+    // Don't forget to free up the dynamically allocated memory and
+    // set the pointer to the null pointer
     delete [] scores;
     scores = nullptr;
     return 0;
@@ -111,8 +123,8 @@ void displayResults(const double *arr, int size, double average)
 
 void sortAscending(double *arr, int size)
 {
-    // Implements the selection sort algorithm to sort
-    // arr in ascending order (chapter 8, section 3)
+    // Implements the selection sort algorithm to sort arr
+    // in ascending order (chapter 8, section 3, pg 474-475)
     int startScan, minIndex;
     double minValue;
 
