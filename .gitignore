@@ -55,3 +55,9 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 .CMakeLists.txt.swp
+
+# zip files
+*.zip
+
+# Word files
+*.docx
