@@ -2,12 +2,133 @@
     <li>
         <dl>
             <dt>Characters:</dt>
-            <dd>lorem ipsump blah blah blah</dd>
+            <dd>
+                <p>
+                    Characters, or the <code>char</code> data type, are used to
+                    store individual characters. A variable of type
+                    <code>char</code> can only hold one character at a time.
+                    <code>char</code>s use the single quote (<code>'</code>)
+                    around the character (<strong>not</strong> double quotes,
+                    <code>"</code>).
+                </p>
+                <p>
+                    <strong>Example:</strong>
+
+                    <pre>char letter = 'a';</pre>
+                </p>
+            </dd>
             <dt>C-Strings:</dt>
-            <dd>lorem ipsump blah blah blah</dd>
+            <dd>
+                <p>
+                    A sequence of characters stored in adjacent memory
+                    locations (e.g., an array of <code>char</code>s) that's
+                    terminated by the <code>NULL</code> character.
+                </p>
+                <p>
+                    <strong>Example:</strong>
+
+                    <pre>char cstr[7] = {'H', 'e', 'l', 'l', 'o', '!', '\0'};</pre>
+
+                    where <code>\0</code> is the null terminator. Although, you
+                    can create a C-string with an implied size (and the null
+                    terminator will be added automatically) by using a string
+                    literal as shown below
+
+                    <pre>char cstr[] = "Hello!";</pre>
+                </p>
+            </dd>
             <dt>Strings:</dt>
-            <dd>lorem ipsump blah blah blah</dd>
+            <dd>
+                <p>
+                    The <code>string</code> class is a data type (not built-in
+                    to C++) that allows you to work with string literals.
+                    Strings, similar to C-strings, are a series of characters
+                    stored in consecutive memory locations, and can be of almost
+                    any length. To use the <code>string</code> class, you need
+                    to include the <code>string</code> header. Note that
+                    <code>string</code>s use double quotes (<code>"</code>).
+                </p>
+                <p>
+                    <strong>Example:</strong>
+
+                    <pre>string myString = "Hello!";</pre>
+                </p>
+            </dd>
         </dl>
     </li>
-    <li></li>
+    <li>
+        <p>
+            The <code>char</code> data type, when not used as an array, is only
+            a single character. A C-string is similar to a <code>char</code>
+            array, except that a C-string is terminated with a null terminator
+            <a href="#references1">[1]</a>. Strings are similar to C-strings in
+            that both are stored in consecutive memory locations and are
+            terminated with the null terminator. Strings look like characters,
+            but they are represented differently. Strings end with the null
+            terminator while characters do not. All string literals are stored
+            as C-strings, but the <code>string</code> class comes with some
+            nice features that make them easier to work with compared to
+            C-strings such as: flexible storage capacity, easier notation,
+            easier comparing of strings (overloaded comparison operators),
+            and concatenation <a href="#references1">[1]</a>.
+        </p>
+        <p>
+            <strong>Reference:</strong>
+            <ul>
+                <li id="#references1">
+                    [1]: <a href="https://www.cs.fsu.edu/~jestes/cop3330/notes/strings.html">
+                    Strings: C-strings vs. strings as objects
+                </a></li>
+            </ul>
+        </p>
+    </li>
 </ol>
+
+<table>
+    <tr>
+        <th><strong>Criterion: Score</strong></th>
+        <th><strong>Rationale</strong></th>
+    </tr>
+    <tr>
+        <td>Original response: <strong>3 / 4</strong></td>
+        <td>Posted an original response, but did not follow the format (bullets).</td>
+    </tr>
+    <tr>
+        <td>Specific with new vocab/key words: <strong>3 / 4</strong></td>
+        <td>Responses are specific, but no too much new vocabulary/key words.</td>
+    </tr>
+    <tr>
+        <td>Valuable information provided: <strong>3 / 4</strong></td>
+        <td>Good information.</td>
+    </tr>
+    <tr>
+        <td><strong>Total: 10 / 12</strong></td>
+        <td></td>
+    </tr>
+</table>
+
+<p>Hi Jafer,</p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+    <tbody>
+        <tr>
+            <td style="width: 50%;"><strong>Criterion: Score</strong></td>
+            <td style="width: 50%;"><strong>Rationale</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Original Response: <strong>3 / 4</strong></td>
+            <td style="width: 50%;">Posted an original response, but did not follow the format (bullets).</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Specific with new vocab/key words: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Good information about bounds checking and use of key words/vocabulary.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Valuable information provided: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Great information.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;"><strong>Total: 11 / 12</strong></td>
+            <td style="width: 50%;"></td>
+        </tr>
+    </tbody>
+</table>
