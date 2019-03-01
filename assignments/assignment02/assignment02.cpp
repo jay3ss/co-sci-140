@@ -81,8 +81,12 @@ int main()
     cin.getline(stringToCount, SIZE);
     char option = ' ';
 
+    // Menu loop
     while (!isQuit(option))
     {
+        // Display the full menu and prompt the user to choose if they want to
+        // count vowels, consonants, both, enter a new string, or quit the
+        // program
         if (!isQuit(option))
         {
 			cout << menuOptions;
@@ -92,16 +96,18 @@ int main()
 			option = tolower(option);
 		}
 
+        // The option that the user chose is invalid. Display an invalid input
+        // message and prompt them to make a choice again, reitterating the
+        // only valid options (A, B, C, D, E)
         if (!isValidOption(option) && !isQuit(option))
         {
-            // Invalid option
-            // Prompt the user to input anoter option again
             cout << invalidOptionMsg;
             cin >> option;
             cin.ignore();
             option = tolower(option);
         }
 
+        // What option did the user choose?
 		switch (option)
 		{
 			case 'a':
@@ -128,16 +134,12 @@ int main()
 				break;
 			case 'e':
                 // Exit the program
-				// Print goodbye message
 	            cout << "Goodbye!\n";
 				break;
 			default:
-                // // Invalid option
-                // // Prompt the user to input anoter option again
-                // cout << invalidOptionMsg;
-				// cin >> option;
-				// cin.ignore();
-                // option = tolower(option);
+                // Invalid option
+                // An error message and the prompting of choosing an option
+                // again is handled above, near the top of the menu loop
                 break;
 		}
 	}
