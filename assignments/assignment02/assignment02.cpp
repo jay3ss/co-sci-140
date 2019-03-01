@@ -51,7 +51,10 @@ bool isVowel(char);
 
 // Function that checks if the option chosen by the user is a valid one.
 // NOTE: This does NOT include the option to quit the program ('e').
-bool isValidOption(char option);
+bool isValidOption(char);
+
+// Function that determines if the user's option is to quit the program.
+bool isQuit(char);
 
 int main()
 {
@@ -78,10 +81,10 @@ int main()
     cin.getline(stringToCount, SIZE);
     char option = ' ';
 
-	while (option != 'e')
-	{
-		if (option != 'e')
-		{
+    while (!isQuit(option))
+    {
+        if (!isQuit(option))
+        {
 			cout << menuOptions;
 			cout << optionPrompt;
 			cin >> option;
@@ -89,7 +92,7 @@ int main()
 			option = tolower(option);
 		}
 
-        if (!isValidOption(option) && option != 'e')
+        if (!isValidOption(option) && !isQuit(option))
         {
             // Invalid option
             // Prompt the user to input anoter option again
@@ -241,4 +244,16 @@ bool isValidOption(char option)
     }
 
     return false;
+}
+
+// Function that determines if the user's option is to quit the program.
+// Args:
+// option (char): a menu option inputted by the user
+// 
+// Returns:
+// true:    if the option is the 'e' character
+// false:   otherwise
+bool isQuit(char option)
+{
+    return option == 'e';
 }
