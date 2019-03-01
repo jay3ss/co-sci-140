@@ -28,7 +28,9 @@
 
 using namespace std;
 
-// FUNCTION PROTOTYPES:
+/*
+ * FUNCTION PROTOTYPES:
+ */
 // Function that counts the number of vowels in a string. A vowel is defined
 // as an element of the set {a, e, i, o, u}. Every other character is
 // considered to be a consonant including white spaces like "TAB", "SPACE BAR",
@@ -46,6 +48,10 @@ int numConsonants(char *);
 // considered to be a consonant including white spaces like "TAB", "SPACE BAR",
 // digits, and special characters.
 bool isVowel(char);
+
+// Function that checks if the option chosen by the user is a valid one.
+// NOTE: This does NOT include the option to quit the program ('e').
+bool isValidOption(char option);
 
 int main()
 {
@@ -82,6 +88,17 @@ int main()
 			cin.ignore();
 			option = tolower(option);
 		}
+
+        if (!isValidOption(option) && option != 'e')
+        {
+            // Invalid option
+            // Prompt the user to input anoter option again
+            cout << invalidOptionMsg;
+            cin >> option;
+            cin.ignore();
+            option = tolower(option);
+        }
+
 		switch (option)
 		{
 			case 'a':
@@ -108,20 +125,20 @@ int main()
 				break;
 			case 'e':
                 // Exit the program
-				// Do nothing so that the exit condition for the while loop
-				// is not met and the loop exits
+				// Print goodbye message
+	            cout << "Goodbye!\n";
 				break;
 			default:
-                // Invalid option
-                // Prompt the user to input anoter option again
-                cout << invalidOptionMsg;
-				cin >> option;
-				cin.ignore();
-				break;
+                // // Invalid option
+                // // Prompt the user to input anoter option again
+                // cout << invalidOptionMsg;
+				// cin >> option;
+				// cin.ignore();
+                // option = tolower(option);
+                break;
 		}
 	}
 
-	cout << "Goodbye!\n";
     system("pause");
     return 0;
 }
@@ -202,6 +219,25 @@ bool isVowel(char letter)
             return true;
         }
         i++;
+    }
+
+    return false;
+}
+
+// Function that checks if the option chosen by the user is a valid one.
+// NOTE: This does NOT include the option to quit the program ('e').
+// Args:
+// option (char): a menu option inputted by the user
+// 
+// Returns:
+// true:    if option is in the set {a, b, c, e}
+// false    otherwise
+bool isValidOption(char option)
+{
+    if (option == 'a' || option == 'b' ||
+        option == 'c' || option == 'd')
+    {
+        return true;
     }
 
     return false;
