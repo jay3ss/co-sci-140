@@ -53,11 +53,11 @@ int main()
     char stringToCount[SIZE];
 
 	// Strings for printing messages to the console
-	// menuOptions: displays the menu
-	// enterStringPrompt: displays the prompt for the user to enter a string
-	// optionPrompt: displays the prompt for the user to enter a menu option
-	// invalidOptionMsg: displays an message indicating that the user entered an
-	//					invalid option
+	// menuOptions:       holds the menu
+	// enterStringPrompt: holds the prompt for the user to enter a string
+	// optionPrompt:      holds the prompt for the user to enter a menu option
+	// invalidOptionMsg:  holds a message indicating that the user entered an
+	//					  invalid option
     string menuOptions = "\
 \tA) Count the number of vowels in the string\n\
 \tB) Count the number of consonants in the string\n\
@@ -85,20 +85,20 @@ int main()
 		switch (option)
 		{
 			case 'a':
-                // Count the number of vowels the string has
-				cout << "The string has " << numVowels(stringToCount)
-					<< " vowels.\n";
+                // Count the number of vowels in the string
+                cout << "The string has " << numVowels(stringToCount)
+					 << " vowels.\n";
 				break;
 			case 'b':
-                // Count the number of consonants the string has
-				cout << "The string has " << numConsonants(stringToCount)
-					<< " consonants.\n";
+                // Count the number of consonants in the string
+                cout << "The string has " << numConsonants(stringToCount)
+					 << " consonants.\n";
 				break;
 			case 'c':
-                // Count the number of vowels AND consonants the string has
-				cout << "The string has " << numVowels(stringToCount) << " and "
-					<< numConsonants(stringToCount)
-					<< " consonants.\n";
+                // Count the number of vowels AND consonants in the string
+				cout << "The string has " << numVowels(stringToCount) 
+                     << " vowels and " << numConsonants(stringToCount)
+					 << " consonants.\n";
 				break;
 			case 'd':
                 // Enter a new string
@@ -113,8 +113,10 @@ int main()
 				break;
 			default:
                 // Invalid option
+                // Prompt the user to input anoter option again
                 cout << invalidOptionMsg;
-				cin.getline(stringToCount, SIZE);
+				cin >> option;
+				cin.ignore();
 				break;
 		}
 	}
@@ -134,16 +136,25 @@ int main()
 // Returns: the number of vowels in the C-string pointed to by cstr
 int numVowels(char *cstr)
 {
-    int size = strlen(cstr);
+    // int size = strlen(cstr);
     int vowelCount = 0;
 
-    for (int i = 0; i < size; i++)
+    while (*cstr != '\0')
     {
-        if (isVowel(cstr[i]))
+        if (isVowel(*cstr))
         {
             vowelCount++;
         }
+        cstr++;
     }
+
+    // for (int i = 0; i < size; i++)
+    // {
+    //     if (isVowel(cstr[i]))
+    //     {
+    //         vowelCount++;
+    //     }
+    // }
 
     return vowelCount;
 }
@@ -176,22 +187,22 @@ int numConsonants(char *cstr)
 // false:   otherwise
 bool isVowel(char letter)
 {
-    const int NUM_VOWELS = 5;
-    char vowels[NUM_VOWELS] = {'a', 'e', 'i', 'o', 'u'};
+    char vowels[] = "aeiou";
     letter = tolower(letter);
 
     // Check if letter matches with one of the characters in the vowels array
     // and immediately return true if it does (i.e., letter is a vowel).
     // Otherwise, return false if it doesn't match with any character in the
     // vowels array.
-    for (int i = 0; i < NUM_VOWELS; i++)
+    int i = 0;
+    while(vowels[i] != '\0')
     {
         if (letter == vowels[i])
         {
             return true;
         }
+        i++;
     }
 
     return false;
 }
-
