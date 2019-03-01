@@ -65,3 +65,6 @@ _deps
 # PowerPoint files
 *.ppt
 *.pptx
+
+# build directory
+*build/
