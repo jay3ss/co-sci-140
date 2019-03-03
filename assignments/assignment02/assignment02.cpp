@@ -98,7 +98,8 @@ int main()
 
         // The option that the user chose is invalid. Display an invalid input
         // message and prompt them to make a choice again, reiterating the
-        // only valid options (A, B, C, D, E)
+        // only valid options (A, B, C, D, E). Keep going until the choice
+		// is a valid one.
         while (!isValidOption(option) && !isQuit(option))
         {
             cout << invalidOptionMsg;
