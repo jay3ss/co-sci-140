@@ -232,7 +232,7 @@ bool isVowel(char letter)
 // Function that checks if the option chosen by the user is a valid one.
 // NOTE: This does NOT include the option to quit the program ('e').
 // Args:
-// option (char): a menu option inputted by the user
+// option (char): a menu option inputted by the user, expected to be lowercase
 // 
 // Returns:
 // true:    if option is in the set {a, b, c, e}
@@ -250,7 +250,7 @@ bool isValidOption(char option)
 
 // Function that determines if the user's option is to quit the program.
 // Args:
-// option (char): a menu option inputted by the user
+// option (char): a menu option inputted by the user, expected to be lowercase
 // 
 // Returns:
 // true:    if the option is the 'e' character
