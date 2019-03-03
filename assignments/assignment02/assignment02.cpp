@@ -49,11 +49,13 @@ int numConsonants(char *);
 // digits, and special characters.
 bool isVowel(char);
 
-// Function that checks if the option chosen by the user is a valid one.
+// Function that checks if the option chosen by the user is a valid one. Valid
+// options are: a, b, c, and d. A lowercase is expected.
 // NOTE: This does NOT include the option to quit the program ('e').
 bool isValidOption(char);
 
-// Function that determines if the user's option is to quit the program.
+// Function that determines if the user's option is to quit the program. A
+// lowercase character is expected. The quit character is 'e'.
 bool isQuit(char);
 
 int main()
@@ -87,14 +89,11 @@ int main()
         // Display the full menu and prompt the user to choose if they want to
         // count vowels, consonants, both, enter a new string, or quit the
         // program
-        if (!isQuit(option))
-        {
-			cout << menuOptions;
-			cout << optionPrompt;
-			cin >> option;
-			cin.ignore();
-			option = tolower(option);
-		}
+		cout << menuOptions;
+		cout << optionPrompt;
+		cin >> option;
+		cin.ignore();
+		option = tolower(option);
 
         // The option that the user chose is invalid. Display an invalid input
         // message and prompt them to make a choice again, reiterating the
@@ -171,14 +170,6 @@ int numVowels(char *cstr)
         cstr++;
     }
 
-    // for (int i = 0; i < size; i++)
-    // {
-    //     if (isVowel(cstr[i]))
-    //     {
-    //         vowelCount++;
-    //     }
-    // }
-
     return vowelCount;
 }
 
@@ -192,9 +183,6 @@ int numVowels(char *cstr)
 // Returns: the number of consonants in the C-string pointed to by cstr
 int numConsonants(char *cstr)
 {
-    // int vowelCount = numVowels(cstr);
-    // int consonantCount = strlen(cstr) - vowelCount;
-    // return consonantCount;
     return strlen(cstr) - numVowels(cstr);
 }
 
