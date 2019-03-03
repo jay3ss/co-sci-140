@@ -97,7 +97,7 @@ int main()
 		}
 
         // The option that the user chose is invalid. Display an invalid input
-        // message and prompt them to make a choice again, reitterating the
+        // message and prompt them to make a choice again, reiterating the
         // only valid options (A, B, C, D, E)
         if (!isValidOption(option) && !isQuit(option))
         {
