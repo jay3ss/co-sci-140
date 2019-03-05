@@ -144,7 +144,7 @@ int main()
 		}
 	}
 
-    system("pause");
+    // system("pause");
     return 0;
 }
 
@@ -158,7 +158,6 @@ int main()
 // Returns: the number of vowels in the C-string pointed to by cstr
 int numVowels(char *cstr)
 {
-    // int size = strlen(cstr);
     int vowelCount = 0;
 
     while (*cstr != '\0')
@@ -183,7 +182,18 @@ int numVowels(char *cstr)
 // Returns: the number of consonants in the C-string pointed to by cstr
 int numConsonants(char *cstr)
 {
-    return strlen(cstr) - numVowels(cstr);
+	int consonantCount = 0;
+
+	while (*cstr != '\0')
+	{
+		if (!isVowel(*cstr))
+		{
+			consonantCount++;
+		}
+		cstr++;
+	}
+
+	return consonantCount;
 }
 
 // Function that determines if a letter is a vowel or not. A vowel is defined
