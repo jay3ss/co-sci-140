@@ -38,8 +38,10 @@ struct Player
     int pointsScored;
 };
 
-// Sets the players information (i.e., name, number, and number of points)
-Player setPlayerInfo(Player *);
+// Sets an individual player's information (i.e., name, number, and number of
+// points)
+void setPlayerInfo(Player *);
+
 
 int main()
 {
@@ -57,7 +59,7 @@ int main()
     return 0;
 }
 
-Player setPlayerInfo(Player *player)
+void setPlayerInfo(Player *player)
 {
     cout << "\nPlayer name: ";
     getline(cin, player->name);
