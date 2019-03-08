@@ -3,4 +3,4 @@ project(assignment03)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(assignment03 assignment03.cpp)
-# add_executable(testingground testingground.cpp)
+add_executable(testingground testingground.cpp)
