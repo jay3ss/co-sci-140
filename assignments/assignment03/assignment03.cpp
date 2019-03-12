@@ -47,11 +47,11 @@ void setPlayersInfo(Player [], const int);
 
 // Function that gets the player's number. No two players can have the same
 // number and the number must not be negative
-unsigned int getPlayerNumber(Player [], const int, const int);
+unsigned int getPlayerNumber(Player [], const int);
 
 // Function that checks if a desired number (number) is currently taken by any
 // other players.
-bool isNumberTaken(const Player [], const int, const int, const int);
+bool isNumberTaken(const Player [], const int, const int);
 
 // Displays each player's stats on an individual line, the total points scored
 // in the game, and displays the player with the most points
@@ -84,7 +84,7 @@ int main()
         cout << "\nPlayer name: ";
         getline(cin, players[i].name);
         cout << "Player's number: ";
-        players[i].number = getPlayerNumber(players, i, NUM_PLAYERS);
+        players[i].number = getPlayerNumber(players, i);
         cout << "Points scored: ";
         players[i].pointsScored = getUnsignedInt();
         cout << "\n";
@@ -95,25 +95,15 @@ int main()
     return 0;
 }
 
-// void setPlayersInfo(Player players[], const int size)
-// {
-//     for (int i = 0; i < size; i++)
-//     {
-//         cout << "PLAYER #" << i + 1 << "\n---------";
-//         cout << "\nPlayer name: ";
-//         getline(cin, players[i]->name);
-//         cout << "Player's number: ";
-//         players[i]->number = getUnsignedInt();
-//         cout << "Points scored: ";
-//         players[i]->pointsScored = getUnsignedInt();
-//         cout << "\n";
-//     }
-// }
-
 // Function that gets the player's number. No two players can have the same
-// number and the number must not be negative.
-// HACK: For now, acts as a shim to the getUnsignedInt function
-unsigned int getPlayerNumber(Player players[], const int index, const int size)
+// number and the number must not be negative. Therefore, this function
+// performs input validation to ensure that no two players have the same
+// number.
+// Args:
+// players (Player array):  an array of type Player that will contain the
+//                          information about the players on a team
+// index (const int):       the index of the player array to check up to
+unsigned int getPlayerNumber(Player players[], const int index)
 {
     int number = -1;
     bool isTaken = true;
@@ -123,9 +113,10 @@ unsigned int getPlayerNumber(Player players[], const int index, const int size)
     while (isNegative(number) || isTaken)
     {
         number = getUnsignedInt();
-        isTaken = isNumberTaken(players, number, index, size);
+        isTaken = isNumberTaken(players, number, index);
 
-        if (isTaken) {
+        if (isTaken)
+        {
             cout << number << " is taken. Please try again.\n";
         }
     }
@@ -134,35 +125,44 @@ unsigned int getPlayerNumber(Player players[], const int index, const int size)
 }
 
 // Function that checks if a desired number (number) is currently taken by any
-// other players.
-bool isNumberTaken(const Player players[], const int number,
-                   const int index, const int size)
+// other players. This is to be used when adding the players' information. Only
+// checks up to index in the players array.
+// Args:
+// players (Player array):  an array of type Player that will contain the
+//                          information about the players on a team
+// number (const int):      the number that is to be checked against the number
+//                          of each current player
+// index (const int):       the index of the player array to check up to. When
+//                          populating the players array, this will be the
+//                          current player's index. If check for all players,
+//                          then it should be the size of players array.
+// 
+// Returns:
+// true:                    if a player in the players array has the same
+//                          number as number
+// false:                   otherwise
+bool isNumberTaken(const Player players[], const int number, const int index)
 {
-    int stop;
 
-    // Make sure that we're not going beyond the bounds of the array
-    if (index < size)
-    {
-        stop = index;
-    }
-    else
-    {
-        stop = size;
-    }
-
-    for (int i = 0; i < stop; i++)
+    for (int i = 0; i < index; i++)
     {
         if (players[i].number == number)
         {
             return true;
         }
     }
-
     return players[index].number == number;
 }
 
 // Displays each player's stats on an individual line, the total points scored
 // in the game, and displays the player with the most points
+// Args:
+// players (Player array):  an array of type Player that will contain the
+//                          information about the players on a team
+// size (const int):        size of the players array
+// 
+// Returns:
+// Nothing (void)
 void finalOutput(const Player players[], const int size)
 {
     unsigned int total = totalPoints(players, size);
@@ -178,28 +178,64 @@ void finalOutput(const Player players[], const int size)
 
     cout << "TOTAL POINTS: " << total << "\n"
          << "The player who scored the most points is: "
-         << players[highestIndex].name;
+         << players[highestIndex].name
+         << " (number " << players[highestIndex].number << ")";
 }
 
 // Function that finds the player that scored the most points in the players
 // array and returns that player's index
+// Args:
+// players (Player array):  an array of type Player that will contain the
+//                          information about the players on a team
+// size (const int):        the size of the players array
 int highestScorerIndex(const Player players[], const int size)
 {
-    return 0;
+    int highestPlayer = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (players[i].pointsScored > players[highestPlayer].pointsScored)
+        {
+            highestPlayer = i;
+        }
+    }
+
+    return highestPlayer;
 }
 
 // Function that finds the total points scored in the game
+// Args:
+// players (Player array):  an array of type Player that will contain the
+//                          information about the players on a team
+// size (const int):        the size of the players array
+// 
+// Returns:
+// total (unsigned int):    the total number of points that has been scored by
+//                          each player
 unsigned int totalPoints(const Player players[], const int size)
 {
-    return 0;
+    int total = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        total += players[i].pointsScored;
+    }
+    return total;
 }
 
 // Convenience function that gets an unsigned int from the user. Does
 // input validation and prints a message to the screen if the user
 // doesn't enter a non-negative number
+// Args:
+// None
+// 
+// Returns
+// number (unsigned int)
 unsigned int getUnsignedInt()
 {
     int number = -1;
+    // Keep prompting for a number if the user inputs a negative number
+    // Break once a non-negative number is received
     do {
         cin >> number;
         cin.ignore();
@@ -213,6 +249,12 @@ unsigned int getUnsignedInt()
 }
 
 // Convenience function that determines if an integer is negative
+// Args:
+// number (int):    the number being checked
+//
+// Returns:
+// true:    if number is negative
+// false:   if number is non-negative
 bool isNegative(int number)
 {
     return number < 0;
