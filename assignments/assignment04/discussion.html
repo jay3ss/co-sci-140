@@ -6,22 +6,123 @@
                 <dd>
                     The combination of code and data in a single object. This
                     is a method of hiding the inner details. Functions
-                    encapsulate behavior and object encapsulate data and
-                    behavior. An example is a clock encapsulating time
-                    <a href="#Carrano">[1]</a>.
+                    encapsulate behavior and objects encapsulate data and
+                    behavior <a href="#Carrano">[1]</a>.
                 </dd>
             </dl>
         </p>
     </li>
     <li>
         <p>
-
+            Classes support encapsulation and information hiding by
+            <ol>
+                <li>
+                    <p>
+                        Combining both data (member attributes) and Functions
+                        (member) methods into one object (encapsulation).
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Information hiding is an object's ability to hide its 
+                        data from outside the object. C++ classes do this by
+                        using access specifiers. The access specifier
+                        <code>private</code> prevents code outside of the object
+                        from modifying or even reading any attributes or
+                        functions declared <code>private</code>. This prevents
+                        corruption of the object's data and outside code knows
+                        nothing about the inner details of the object.
+                    </p>
+                </li>
+            </ol>
         </p>
     </li>
     <li>
         <p>
-
+            Class member variables declared as <code>static</code> are
+            accessible to <em>all</em> instances of that class. No matter how
+            many instances of a class there are, there will only be one copy
+            of <code>static</code> member variables. You must remember to have
+            a declaration of the <code>static</code> member variable that's
+            <em>outside</em> of the class in order for it to be created in
+            memory. An example of this is counting the number of instances of a
+            class. For example,
         </p>
+
+        <pre>
+// MyClass.h
+class MyClass
+{
+private:
+    static int numObjects;
+public:
+    MyClass()
+    { numObjects++; }
+
+    int getNumObjects() const
+    { return numObjects; }
+};
+
+// Define in global scope of program
+int MyClass::numObjects = 0;
+
+// In main function of program
+MyClass myClass1;
+MyClass myClass2;
+
+// Both calls to getNumObjects will result in 2
+cout << "Number of objects of type MyClass: " 
+     << myClass1.getNumObjects();
+
+cout << "Number of objects of type MyClass: " 
+     << myClass2.getNumObjects();
+        </pre>
+
+        <p>
+            Class member functions declared as <code>static</code> can be
+            called <em>before</em> any instances of the class are instantiated.
+            and can only operate on <code>static</code> member variables. When
+            using a <code>static</code> member function, make sure to use the
+            scope resolution operator (<code>::</code>) instead of the dot
+            operator. Also note that the class name is used instead of an
+            instance when calling the function as well. The above example can
+            be modified to use a
+            <code>static</code> member function instead of a variable.
+        </p>
+
+<pre>
+// MyClass.h
+class MyClass
+{
+private:
+    static int numObjects;
+public:
+    MyClass()
+    { numObjects++; }
+
+    static int getNumObjects()
+    { return numObjects; }
+};
+
+// Define in global scope of program
+int MyClass::numObjects = 0;
+
+// In main function of program
+
+cout << "Number of objects of type MyClass: "
+     << MyClass::getNumObjects();
+// The output of the cout statement above is
+// Number of objects of type MyClass: 0
+
+// Instantiate two MyClass objects
+MyClass myClass1;
+MyClass myClass2;
+
+cout << "Number of objects of type MyClass: " 
+     << MyClass::getNumObjects();
+// The output of the cout statement above is
+// Number of objects of type MyClass: 2
+        </pre>
     </li>
 </ol>
 
