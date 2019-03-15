@@ -1,85 +1,37 @@
 <ol>
     <li>
-        <dl>
-            <dt>Characters:</dt>
-            <dd>
-                <p>
-                    Characters, or the <code>char</code> data type, are used to
-                    store individual characters. A variable of type
-                    <code>char</code> can only hold one character at a time.
-                    <code>char</code>s use the single quote (<code>'</code>)
-                    around the character (<strong>not</strong> double quotes,
-                    <code>"</code>).
-                </p>
-                <p>
-                    <strong>Example:</strong>
-
-                    <pre>char letter = 'a';</pre>
-                </p>
-            </dd>
-            <dt>C-Strings:</dt>
-            <dd>
-                <p>
-                    A sequence of characters stored in adjacent memory
-                    locations (e.g., an array of <code>char</code>s) that's
-                    terminated by the <code>NULL</code> character.
-                </p>
-                <p>
-                    <strong>Example:</strong>
-
-                    <pre>char cstr[7] = {'H', 'e', 'l', 'l', 'o', '!', '\0'};</pre>
-
-                    where <code>\0</code> is the null terminator. Although, you
-                    can create a C-string with an implied size (and the null
-                    terminator will be added automatically) by using a string
-                    literal as shown below
-
-                    <pre>char cstr[] = "Hello!";</pre>
-                </p>
-            </dd>
-            <dt>Strings:</dt>
-            <dd>
-                <p>
-                    The <code>string</code> class is a data type (not built-in
-                    to C++) that allows you to work with string literals.
-                    Strings, similar to C-strings, are a series of characters
-                    stored in consecutive memory locations, and can be of almost
-                    any length. To use the <code>string</code> class, you need
-                    to include the <code>string</code> header. Note that
-                    <code>string</code>s use double quotes (<code>"</code>).
-                </p>
-                <p>
-                    <strong>Example:</strong>
-
-                    <pre>string myString = "Hello!";</pre>
-                </p>
-            </dd>
-        </dl>
+        <p>
+            <dl>
+                <dt>Encapsulation</dt>
+                <dd>
+                    The combination of code and data in a single object. This
+                    is a method of hiding the inner details. Functions
+                    encapsulate behavior and object encapsulate data and
+                    behavior. An example is a clock encapsulating time 
+                    <a href="#Carrano">[1]</a>. 
+                </dd>
+            </dl>
+        </p>
     </li>
     <li>
         <p>
-            The <code>char</code> data type, when not used as an array, is only
-            a single character. A C-string is similar to a <code>char</code>
-            array, except that a C-string is terminated with a null terminator
-            <a href="#references1">[1]</a>. Strings are similar to C-strings in
-            that both are stored in consecutive memory locations and are
-            terminated with the null terminator. Strings look like characters,
-            but they are represented differently. Strings end with the null
-            terminator while characters do not. All string literals are stored
-            as C-strings, but the <code>string</code> class comes with some
-            nice features that make them easier to work with compared to
-            C-strings such as: flexible storage capacity, easier notation,
-            easier comparing of strings (overloaded comparison operators),
-            and concatenation <a href="#references1">[1]</a>.
+           
         </p>
+    </li>
+    <li>
         <p>
-            <strong>Reference:</strong>
-            <ul>
-                <li id="#references1">
-                    [1]: <a href="https://www.cs.fsu.edu/~jestes/cop3330/notes/strings.html">
-                    Strings: C-strings vs. strings as objects
-                </a></li>
-            </ul>
+
+        </p>
+    </li>
+</ol>
+
+<p id="references"><strong>References</strong></p>
+
+<ol>
+    <li>
+        <p id="Carrano">
+            Carrano, F. (2013). Data Abstraction & Problem Solving with C++.
+            6th ed. Harlow: Pearson, p.3.
         </p>
     </li>
 </ol>

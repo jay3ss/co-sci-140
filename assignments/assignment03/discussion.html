@@ -1,0 +1,204 @@
+<ol>
+    <li>
+        <p><strong>How to manipulate data using a structure</strong></p>
+
+        <p>
+            Before being used, structures (or, <code>struct</code>s) must be
+            declared. This is done in the following example
+        </p>
+
+        <pre>
+struct Student // structure tag
+{
+    int studentID;      // structure member
+    string name;        // structure member
+    short yearInSchool; // structure member
+    double gpa;         // structure member
+};
+        </pre>
+
+        <p>
+            The creation of a <code>struct</code> variable of has similar
+            semantics to that of primitive data types. And, to access the
+            <code>struct</code>'s members we use the dot (<code>.</code>)
+            operator. When initializing a struct, you have a couple of options.
+            For example
+        </p>
+
+        <pre>
+// Dot notation
+Student stu1;               // similar to int myInt;
+stu.studentID = 1234567890;
+stu.name = "Billy";
+stu.yearInSchool = 1;
+stu.gpa = 3.3;
+
+// Array-like notation
+Student stu2 = {0987654321, "Johnny", 4, 2.7};
+
+// Partial initialization
+Student stu3 = {2358132134, "Amelia", ,};
+        </pre>
+
+        <p>
+            <strong>NOTE:</strong> If you leave one member uninitialized, you
+            must leave all other members that come after it uninitialized as
+            well.
+        </p>
+
+        <p>Accessing member data is straightforward using the dot notation</p>
+
+        <pre>
+cout << stu1.studentID
+     << stu1.name
+     << stu1.yearInSchool
+     << stu1.gpa;
+        </pre>
+
+        <p>
+            Just like built-in data types, you can make pointers to
+            <code>struct</code>s. The creation of pointers to 
+            <code>struct</code>s is similar to pointers of any other type, but
+            you can access the <code>struct</code>'s members using two different
+            methods. As you'll see, one is easier to read than the other.
+        </p>
+
+        <pre>
+// Dereferencing the pointer
+*(stu).name = "Billy";
+
+// Arrow notation
+stu->gpa = 3.3;
+        </pre>
+    </li>
+    <li>
+        <p><strong>How arrays can be used in a structure</strong></p>
+
+        <p>
+            <code>struct</code>s' members can include arrays, but you must be
+            careful in how you declare them. Member arrays must have their
+            length defined in the definition of the <code>struct</code>
+            <em>unless</em> it's the last member of the <code>struct</code>
+            <a href="#references">[1]</a>.
+            For example,
+        </p>
+
+        <pre>
+// Will compile, flexible length member array declared
+// as last member
+struct Testing1
+{
+    int number;
+    int numbers[];
+};
+
+// Won't compile, member array length not declared
+struct Testing2
+{
+    int numbers[];
+    int number;
+}
+
+// Will compile, member array length declared
+struct Testing3
+{
+    int numbers[5];
+    int number;
+};
+        </pre>
+
+        <p>To use an array member, you use it just like any other array.</p>
+
+        <pre>
+Testing3 testing;
+for (int i = 0; i < 5; i++)
+{
+    testing.numbers[i] = i;
+}
+        </pre>
+    </li>
+    <li>
+        <p><strong>How to create an array of structures</strong></p>
+
+        <p>
+            Arrays of structures can be created quite easily, just like an
+            array of built-in data types. Arrays of <code>struct</code>s can
+            also be dynamically allocated. For example,
+        </p>
+
+        <pre>
+const int NUM_STUDENTS = 50;
+Student students1[NUM_STUDENTS];
+
+// Dynamically allocate enough space for 50 students
+Student *students2 = nullptr;
+students2 = new Student[NUM_STUDENTS];
+        </pre>
+
+        <p>
+            will create two arrays holding enough space for 50
+            <code>Student</code> type <code>struct</code>s each.
+        </p>
+    </li>
+</ol>
+
+
+<p id="references"><strong>References</strong></p>
+
+<ul>
+    <li>
+        [1]: 
+        <a href="https://en.cppreference.com/w/c/language/struct">
+            Struct declaration
+        </a>
+    </li>
+</ul>
+
+<table>
+    <tr>
+        <th><strong>Criterion: Score</strong></th>
+        <th><strong>Rationale</strong></th>
+    </tr>
+    <tr>
+        <td>Original response: <strong>3 / 4</strong></td>
+        <td>Posted an original response, but did not follow the format (bullets).</td>
+    </tr>
+    <tr>
+        <td>Specific with new vocab/key words: <strong>3 / 4</strong></td>
+        <td>Responses are specific, but no too much new vocabulary/key words.</td>
+    </tr>
+    <tr>
+        <td>Valuable information provided: <strong>3 / 4</strong></td>
+        <td>Good information.</td>
+    </tr>
+    <tr>
+        <td><strong>Total: 10 / 12</strong></td>
+        <td></td>
+    </tr>
+</table>
+
+<p>Hi Jafer,</p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+    <tbody>
+        <tr>
+            <td style="width: 50%;"><strong>Criterion: Score</strong></td>
+            <td style="width: 50%;"><strong>Rationale</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Original Response: <strong>3 / 4</strong></td>
+            <td style="width: 50%;">Posted an original response, but did not follow the format (bullets).</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Specific with new vocab/key words: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Good information about bounds checking and use of key words/vocabulary.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Valuable information provided: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Great information.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;"><strong>Total: 11 / 12</strong></td>
+            <td style="width: 50%;"></td>
+        </tr>
+    </tbody>
+</table>
