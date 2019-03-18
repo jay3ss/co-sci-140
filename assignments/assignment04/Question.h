@@ -1,7 +1,7 @@
-// Class for a quiz question
+// Class for a quiz question. Holds
 #ifndef QUESTION_H
 #define QUESTION_H
-#include <memory>
+
 #include <string>
 
 using namespace std;
@@ -9,14 +9,9 @@ using namespace std;
 class Question
 {
 public:
-    Question(int na = 4)
-    { numAnswers = na;
-      questionText = "";
-      possibleAnswers = new string[na]; }
-
-    ~Question()
-    { delete [] possibleAnswers;
-      possibleAnswers = nullptr; }
+    Question(int na = 4);
+    
+    ~Question();
 
     bool checkAnswer(int ans) const
     { return ans == correctAnswer; }
@@ -53,7 +48,7 @@ private:
     int numAnswers;             // Number of answers (default=4)
     string questionText;        // The question text
     string* possibleAnswers;    // Possible answers to question
-    int correctAnswer;          // Correct answer (1, 2, 3, or 4)
+    int correctAnswer;          // Correct answer (1, 2, 3, or 4 for default)
 };
 
 #endif // QUESTION_H
