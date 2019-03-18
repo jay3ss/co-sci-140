@@ -7,8 +7,8 @@
 using namespace std;
 
 // Function prototypes
-void getOneQuestion(fstream &, string *, string[], int *);
-void getAllQuestions(fstream &, Question [], const int);
+void getOneQuestion(fstream &, string *, string[], int *, const int);
+void getAllQuestions(fstream &, Question [], const int, const int);
 void displayQuestion(Question *, const int);
 
 int main()
@@ -23,7 +23,7 @@ int main()
     Question questions[NUM_QUESTIONS];
 
     // Populate the Question array with the data from the trivia file
-    getAllQuestions(triviaFile, questions, NUM_QUESTIONS);
+    getAllQuestions(triviaFile, questions, NUM_QUESTIONS, NUM_ANSWERS);
 
     // Create the players and prompt them for their answers for the quiz
     int playersPoints[] = {0, 0};
@@ -80,10 +80,24 @@ int main()
     return 0;
 }
 
-
 // Function that gets all of the questions from the trivia text file and
-// populates a Question array with the data from the text file
-void getAllQuestions(fstream &file, Question qs[], const int size)
+// populates a Question array with the data from the text file.
+// Args:
+// file:    fstream object that is parsed. It is expected to have the following
+//          format:
+//          Question text (string)
+//          Possible answer 1 (string)
+//          Possible answer 2 (string)
+//          ...
+//          Possible answer n (string) where n is the number given by the numAns
+//          argument
+//          Correct answer  (string to be converted to an int)
+// qs:      The array of Question obejcts
+// size:    The length of the qs array
+// numAns:  The number of possible answers
+// Returns:
+// Nothing
+void getAllQuestions(fstream &file, Question qs[], const int size, const int numAns)
 {
     string qText;
     string strArr[4];
@@ -93,25 +107,44 @@ void getAllQuestions(fstream &file, Question qs[], const int size)
     // each question with the data from the trivia file
     for (int i = 0; i < size; i++)
     {
-        getOneQuestion(file, &qText, strArr, &ansNum);
+        getOneQuestion(file, &qText, strArr, &ansNum, numAns);
         qs[i].setQuestionText(qText);
         qs[i].setPossibleAnswers(strArr);
         qs[i].setCorrectAnswer(ansNum);
     }
 }
 
-
 // Function that grabs one a question at a time from the trivia text file
-void getOneQuestion(fstream &file, string *qText, string strArr[], int *ansNum)
+// Args:
+// file:    fstream object that is parsed. It is expected to have the following
+//          format:
+//          Question text (string)
+//          Possible answer 1 (string)
+//          Possible answer 2 (string)
+//          ...
+//          Possible answer n (string) where n is the number given by the size
+//          argument
+//          Correct answer  (string to be converted to an int)
+// qText:   This will hold the question text
+// strArr:  This will hold the the possible questions
+// ansNum:  This will hold the number of the correct answer
+// size:    The number of possible answers
+// Returns:
+// Nothing
+void getOneQuestion(fstream &file, string *qText, string strArr[], 
+                    int *ansNum, const int size)
 {
-    int NUM_QUESTIONS = 4;
+
+    // Read the question text and save it
     getline(file, *qText);
 
-    for (int i = 0; i < NUM_QUESTIONS; i++)
+    // Read each and save each possible answer
+    for (int i = 0; i < size; i++)
     {
         getline(file, strArr[i]);
     }
 
+    // Get the correct answer and convert it from a string to an int
     string ansString;
     getline(file, ansString);
 
@@ -119,11 +152,19 @@ void getOneQuestion(fstream &file, string *qText, string strArr[], int *ansNum)
 }
 
 // Function that displays a question
-void displayQuestion(Question *q, const int numAns)
+// Args:
+// ques:    Question object that's going to be displayed
+// numAns:  The number of possible answers that a question has
+// Returns:
+// Nothing
+void displayQuestion(Question *ques, const int numAns)
 {
-    string *pa = q->getPossibleAnswers();
-    cout << q->getQuestionText() << endl;
+    // Get a pointer to the array that holds all of the possible answers
+    // and display the question text
+    string *pa = ques->getPossibleAnswers();
+    cout << ques->getQuestionText() << endl;
 
+    // Display all of the possible answers and number them as well
     for (int i = 0; i < numAns; i++)
     {
         cout << (i + 1) << ". " << pa[i] << endl;

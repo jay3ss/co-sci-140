@@ -18,22 +18,21 @@ public:
     { delete [] possibleAnswers;
       possibleAnswers = nullptr; }
 
+    bool checkAnswer(int ans) const
+    { return ans == correctAnswer; }
+
+    // Accessors
     string getQuestionText()
     { return questionText; }
 
-    // NOTE: Should this be an array, a pointer to an array, something else?
     string *getPossibleAnswers()
     { return possibleAnswers; }
 
-    // Accessors
     int getCorrectAnswerNum() const
     { return correctAnswer; }
 
     int getNumAnswers() const
     { return numAnswers; }
-
-    bool checkAnswer(int ans) const
-    { return ans == correctAnswer; }
 
     string getCorrectAnswerText()
     { return possibleAnswers[correctAnswer - 1]; }
@@ -51,12 +50,10 @@ public:
     { correctAnswer = ca; }
 
 private:
-    int numAnswers;
-    string questionText;
-    string* possibleAnswers;
-    int correctAnswer;
-    void initialize();
-
+    int numAnswers;             // Number of answers (default=4)
+    string questionText;        // The question text
+    string* possibleAnswers;    // Possible answers to question
+    int correctAnswer;          // Correct answer (1, 2, 3, or 4)
 };
 
 #endif // QUESTION_H
