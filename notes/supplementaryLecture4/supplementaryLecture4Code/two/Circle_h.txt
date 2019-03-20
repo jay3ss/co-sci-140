@@ -1,0 +1,15 @@
+
+class Circle
+{
+
+public:
+	Circle();
+	Circle(double r);
+	void setRadius(double r);
+	double getRadius();
+	double getArea();
+	double getCirumference();
+
+private:
+	double radius;
+};

@@ -1,0 +1,14 @@
+
+class generateAddition
+{
+public:
+	generateAddition();
+	generateAddition(int&, int&);
+	void randomize(int&, int&);
+	int getSum();
+
+private:
+	int num1;
+	int num2;
+	int theAnswer;
+};
