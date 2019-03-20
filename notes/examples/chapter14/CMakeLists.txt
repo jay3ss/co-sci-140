@@ -5,4 +5,4 @@ set(CMAKE_CXX_STANDARD 11)
 # To allow separation of definition and implementation
 include_directories(${PROJECT_SOURCE_DIR})
 
-# add_executable(assignment04 assignment04.cpp Question.cpp)
+add_executable(treeStaticMemberFunctionProg treeStaticMemberFunctionProg.cpp Tree.h)
