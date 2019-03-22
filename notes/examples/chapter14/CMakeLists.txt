@@ -6,3 +6,4 @@ set(CMAKE_CXX_STANDARD 11)
 include_directories(${PROJECT_SOURCE_DIR})
 
 add_executable(treeStaticMemberFunctionProg treeStaticMemberFunctionProg.cpp Tree.h)
+add_executable(budgetStaticMemberFunctionProg budgetStaticMemberFunctionProg.cpp Auxil.cpp Budget.cpp)
