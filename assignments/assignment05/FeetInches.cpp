@@ -41,7 +41,7 @@ FeetInches FeetInches::operator + (const FeetInches &right)
 //**************************************************************
 // Overloaded binary - operator
 //**************************************************************
-FeetInches FeetInches::operator+(const FeetInches &right)
+FeetInches FeetInches::operator - (const FeetInches &right)
 {
     FeetInches temp;
 
