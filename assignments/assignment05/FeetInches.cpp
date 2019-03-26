@@ -50,3 +50,68 @@ FeetInches FeetInches::operator - (const FeetInches &right)
     temp.simplify();
     return temp;
 }
+
+//**************************************************************
+// Overloaded binary >= operator
+//**************************************************************
+bool FeetInches::operator  >= (const FeetInches &right)
+{
+    bool status;
+    
+    if (feet > right.feet)
+    {
+        status = true;
+    }
+    else if (feet == right.feet && inches >= right.inches)
+    {
+        status = true;
+    }
+    else
+    {
+        status = false;
+    }
+
+    return status;
+}
+
+//**************************************************************
+// Overloaded binary <= operator
+//**************************************************************
+bool FeetInches::operator <= (const FeetInches &right)
+{
+    bool status;
+
+    if (feet < right.feet)
+    {
+        status = true;
+    }
+    else if (feet == right.feet && inches <= right.inches)
+    {
+        status = true;
+    }
+    else
+    {
+        status = false;
+    }
+
+    return status;
+}
+
+//**************************************************************
+// Overloaded binary != operator
+//**************************************************************
+bool FeetInches::operator != (const FeetInches &right)
+{
+    bool status;
+
+    if (feet != right.feet || inches != right.inches)
+    {
+        status = true;
+    }
+    else
+    {
+        status = false;
+    }
+
+    return status;
+}
