@@ -1,0 +1,178 @@
+<ol>
+    <!-- 
+        1. Explain operator overloading; be succinct and to the point. 
+    -->
+    <li>
+        <p>
+            
+        </p>
+    </li>
+    <!--  
+        2. Explain and use static members of a class; be succinct and to the point.  
+    -->
+    <li>
+        <p>
+            Class member variables declared as <code>static</code> are
+            accessible to <em>all</em> instances of that class. No matter how
+            many instances of a class there are, there will only be one copy
+            of <code>static</code> member variables. You must remember to have
+            a declaration of the <code>static</code> member variable that's
+            <em>outside</em> of the class in order for it to be created in
+            memory. An example of this is counting the number of instances of a
+            class. For example,
+        </p>
+
+        <pre>
+// MyClass.h
+class MyClass
+{
+private:
+    static int numObjects;
+public:
+    MyClass()
+    { numObjects++; }
+
+    int getNumObjects() const
+    { return numObjects; }
+};
+
+// Define in global scope of program
+int MyClass::numObjects = 0;
+
+// In main function of program
+MyClass myClass1;
+MyClass myClass2;
+
+// Both calls to getNumObjects will result in 2
+cout << "Number of objects of type MyClass: " 
+     << myClass1.getNumObjects();
+
+cout << "Number of objects of type MyClass: " 
+     << myClass2.getNumObjects();
+        </pre>
+
+        <p>
+            Class member functions declared as <code>static</code> can be
+            called <em>before</em> any instances of the class are instantiated.
+            and can only operate on <code>static</code> member variables. When
+            using a <code>static</code> member function, make sure to use the
+            scope resolution operator (<code>::</code>) instead of the dot
+            operator. Also note that the class name is used instead of an
+            instance when calling the function as well. The above example can
+            be modified to use a
+            <code>static</code> member function instead of a variable.
+        </p>
+
+<pre>
+// MyClass.h
+class MyClass
+{
+private:
+    static int numObjects;
+public:
+    MyClass()
+    { numObjects++; }
+
+    static int getNumObjects()
+    { return numObjects; }
+};
+
+// Define in global scope of program
+int MyClass::numObjects = 0;
+
+// In main function of program
+
+cout << "Number of objects of type MyClass: "
+     << MyClass::getNumObjects();
+// The output of the cout statement above is
+// Number of objects of type MyClass: 0
+
+// Instantiate two MyClass objects
+MyClass myClass1;
+MyClass myClass2;
+
+cout << "Number of objects of type MyClass: " 
+     << MyClass::getNumObjects();
+// The output of the cout statement above is
+// Number of objects of type MyClass: 2
+        </pre>
+    </li>
+    <!-- 
+        3. Differentiate between friend and member functions of a class; be
+           succinct and to the point. 
+    -->
+    <li>
+        <p>
+
+        </p>
+    </li>
+    <!-- 
+        4. Compare and contrast the notions of overloading and overriding of
+           functions in C++; be succinct and to the point.
+    -->
+    <li>
+        <p>
+    
+        </p>
+    </li>
+</ol>
+
+<p id="references"><strong>References</strong></p>
+
+<ol>
+    <li>
+        <p id="Carrano">
+            Carrano, F. (2013). Data Abstraction & Problem Solving with C++.
+            6th ed. Harlow: Pearson, p.3.
+        </p>
+    </li>
+</ol>
+
+<table>
+    <tr>
+        <th><strong>Criterion: Score</strong></th>
+        <th><strong>Rationale</strong></th>
+    </tr>
+    <tr>
+        <td>Original response: <strong>3 / 4</strong></td>
+        <td>Posted an original response, but did not follow the format (bullets).</td>
+    </tr>
+    <tr>
+        <td>Specific with new vocab/key words: <strong>3 / 4</strong></td>
+        <td>Responses are specific, but no too much new vocabulary/key words.</td>
+    </tr>
+    <tr>
+        <td>Valuable information provided: <strong>3 / 4</strong></td>
+        <td>Good information.</td>
+    </tr>
+    <tr>
+        <td><strong>Total: 10 / 12</strong></td>
+        <td></td>
+    </tr>
+</table>
+
+<p></p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+    <tbody>
+        <tr>
+            <td style="width: 50%;"><strong>Criterion: Score</strong></td>
+            <td style="width: 50%;"><strong>Rationale</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Original Response: <strong>3 / 4</strong></td>
+            <td style="width: 50%;">Posted an original response, but did not follow the format (bullets).</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Specific with new vocab/key words: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Good information about bounds checking and use of key words/vocabulary.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Valuable information provided: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Great information.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;"><strong>Total: 11 / 12</strong></td>
+            <td style="width: 50%;"></td>
+        </tr>
+    </tbody>
+</table>
