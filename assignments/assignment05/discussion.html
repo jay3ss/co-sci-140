@@ -4,7 +4,70 @@
     -->
     <li>
         <p>
-            
+            Operator overloading allows you to use an operator to manipulate
+            class data in an easy, intuitive manner using C++ operators. For
+            example, if you have a <code>Date</code> class that models dates,
+            then instead of creating a member function called <code>add</code>
+            you can overload the <code>+</code> and <code>=</code> operators
+            to make adding two dates as straightforward as primitive data
+            types. So, instead of doing
+        </p>
+
+        <pre>
+today.add(1);   // now today is tomorrow's date
+        </pre>
+
+        <p>
+            you can do
+        </p>
+
+        <pre>
+tomorrow = today + 1;   // now tomorrow is tomorrow's date
+        </pre>
+
+        <p>
+            which is much more straightforward and intuitive than the first
+            example. To overload an operator, use the following syntax
+        </p>
+
+        <pre>
+// Date is the return type
+// operator= is the operator that is being overloaded
+// const Date &right is the parameter
+Date operator= (const Date &right);
+        </pre>
+
+        <p>
+            You can also overload the relational operators as well to make
+            comparison of objects easy and intuitive. Continuing with the
+            <code>Date</code> class example, if we want to compare two
+            <code>Date</code> instances we'd either have to create member
+            functions that do the comparison or directly compare the member
+            attribute data directly. Either way results in a clunky interface
+            for the programmer. If we overload relational operators then the
+            interface for the programmer is, again, easier and intuitive. For
+            example, if we were to overload the <code><</code> operator we
+            can compare two <code>Date</code> instances like the following
+            example
+        </p>
+
+        <pre>
+// today is today's date & tomorrow is tomorrow's date
+if (today < tomorrow)
+{
+    cout << "Today is before tomorrow";
+}
+else
+{
+    cout << "Tomorrow is before today";
+}
+// the result of the above block of code is:
+// Today is before tomorrow
+        </pre>
+
+        <p>
+            The syntax for overloading the relational operators is the same
+            syntax as above.
         </p>
     </li>
     <!--  
