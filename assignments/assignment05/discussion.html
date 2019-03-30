@@ -199,7 +199,39 @@ friend void MyClass::myFriendFunction(int n);
     -->
     <li>
         <p>
-            
+            In C++, overloading a function means that two or more functions
+            have the same name, but with different parameter lists. This
+            allows you to have the same function (from the programmer's
+            perspective) work with many different data types.
+        </p>
+
+        <p>
+            Overriding a function occurs when one class inherits from a base
+            class and the new class declares member a function with the same
+            name and signature as the base class. An example given in the book
+            is
+        </p>
+
+        <pre>
+class BaseClass
+{
+public:
+    void showMessage()
+        { cout << "This is the Base class.\n"; }
+};
+
+class DerivedClass : public BaseClass
+{
+public:
+    void showMessage()
+        { cout << "This is the Derived class.\n"; }
+};
+        </pre>
+
+        <p>
+            In the above example, the <code>showMessage</code> function of the
+            <code>DerivedClass</code> class overrides <code>showMessage</code>
+            function of the <code>BaseClass</code>.
         </p>
     </li>
 </ol>
