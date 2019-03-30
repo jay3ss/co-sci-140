@@ -17,10 +17,14 @@
 
 using namespace std;
 
+// Function prototype
+// Prints the results of the comparison of the two distances set by the user
+void printResults(FeetInches&, FeetInches&);
+
 int main()
 {
-    int feet = 0;
-    int inches = 0;
+    int feet = 0;       // Hold the feet for both FeetInches instances
+    int inches = 0;     // Hold the inches for both FeetInches instances
 
     // Prompt the user to enter the first distance
     cout << "Enter a distance in feet and inches: Feet: ";
@@ -38,6 +42,21 @@ int main()
 
     FeetInches distance2(feet, inches);
 
+    printResults(distance1, distance2);
+
+    return 0;
+}
+
+// Prints the results of the comparison of the two distances set by the user
+//
+// Args:
+// distance1:   FeetInches reference
+// distance2:   FeetInches reference
+// 
+// Returns:
+// Nothing
+void printResults(FeetInches& distance1, FeetInches& distance2)
+{
     if (distance1 != distance2)
     {
         cout << "The two are not equal.\n";
@@ -60,6 +79,4 @@ int main()
              << distance2.getFeet() << " feet, "
              << distance2.getInches() << " inches";
     }
-
-    return 0;
 }
