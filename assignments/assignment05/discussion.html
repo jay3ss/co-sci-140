@@ -166,7 +166,31 @@ cout << "Number of objects of type MyClass: "
     -->
     <li>
         <p>
+            <dl>
+                <dt>member function of a class</dt>
+                <dd>
+                    A member of the class and has full access to all variables
+                    within that class (unless declared <code>static</code>). A
+                    member function is declared with the following syntax:
 
+                    <pre>
+// {return type} {class name::function name}({parameters});
+void MyClass::myMemberFunction(int n);
+                    </pre>
+                </dd>
+                <dt>friend of a class</dt>
+                <dd>
+                    A friend of a class is a function that is not a member of
+                    the class, but has access to the private members of the
+                    class. A function is declared as a friend of a class with
+                    the following syntax:
+
+                    <pre>
+// friend {return type} {class name::function name}({parameters});
+friend void MyClass::myFriendFunction(int n);
+                    </pre>
+                </dd>
+            </dl>
         </p>
     </li>
     <!-- 
@@ -175,7 +199,7 @@ cout << "Number of objects of type MyClass: "
     -->
     <li>
         <p>
-    
+            
         </p>
     </li>
 </ol>
