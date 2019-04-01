@@ -1,8 +1,14 @@
+// Joshua Saunders
+// CO SCI 140 (Section 15029) - Assignment 05
+// Due March 31, 2019
+// The FeetInches class holds distances or measurements
+// expressed in feet and inches.
 #ifndef FEETINCHES_H
 #define FEETINCHES_H
 
-// The FeetInches class holds distances or measurements
-// expressed in feet and inches.
+#include <ostream>
+
+using namespace std;
 
 class FeetInches
 {
@@ -39,6 +45,9 @@ public:
     bool operator >= (const FeetInches &);    // Overloaded >=
     bool operator <= (const FeetInches &);    // Overloaded <=
     bool operator != (const FeetInches &);    // Overloaded !=
+
+    // Friend
+    friend ostream &operator<<(ostream &, const FeetInches &);
 };
 
 #endif // FEETINCHES_H

@@ -64,19 +64,11 @@ void printResults(FeetInches& distance1, FeetInches& distance2)
 
     if (distance1 >= distance2)
     {
-        cout << distance1.getFeet() << " feet, "
-             << distance1.getInches() << " inches "
-             << " is >= "
-             << distance2.getFeet() << " feet, "
-             << distance2.getInches() << " inches\n";
+        cout << distance1 << " is >= " << distance2 << "\n";
     }
 
     if (distance1 <= distance2)
     {
-        cout << distance1.getFeet() << " feet, "
-             << distance1.getInches() << " inches "
-             << " is <= "
-             << distance2.getFeet() << " feet, "
-             << distance2.getInches() << " inches";
+        cout << distance1 << " is <= " << distance2 << "\n";
     }
 }

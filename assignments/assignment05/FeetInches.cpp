@@ -1,3 +1,6 @@
+// Joshua Saunders
+// CO SCI 140 (Section 15029) - Assignment 05
+// Due March 31, 2019
 // Implementation file for the FeetInches class
 #include <cstdlib>  // needed for abs()
 #include "FeetInches.h"
@@ -114,4 +117,31 @@ bool FeetInches::operator != (const FeetInches &right)
     }
 
     return status;
+}
+
+//**************************************************************
+// Overloaded << operator
+//**************************************************************
+// This will print the object's data an dtakes care of
+// pluralizing "foot" and "inch" when appropriate. It prints in
+// the following format:
+//
+// 5 feet, 3 inches
+//
+// if the object has feet = 5 and inches = 3. And the format:
+//
+// 1 foot, 1 inch
+//
+// if the object has feet = 1 and inches = 1
+ostream &operator<<(ostream &strm, const FeetInches &obj)
+{
+    // Use "foot" or "feet"?
+    strm << obj.feet;
+    strm << ((obj.feet == 1) ? " foot, " : " feet, ");
+
+    // Use "inch" or "inches"?
+    strm << obj.inches;
+    strm << ((obj.inches == 1) ? " inch" : " inches");
+    
+    return strm;
 }
