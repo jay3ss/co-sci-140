@@ -56,6 +56,13 @@ struct Student
 
 int main()
 {
+    int numStudents, numTestScores;
 
+    cout << "How many students do you have? ";
+    cin >> numStudents;
+
+    cout << "How many test scores do you have per student? ";
+    cin << numTestScores;
+    
     return 0;
 }
