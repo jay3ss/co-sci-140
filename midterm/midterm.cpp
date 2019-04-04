@@ -64,7 +64,7 @@ int main()
     cout << "How many students do you have? ";
     cin >> numStudents;
 
-    cout << "\nHow many test scores do you have per student? ";
+    cout << "How many test scores do you have per student? ";
     cin >> numTestScores;
 
     // Create the Student array
@@ -74,25 +74,24 @@ int main()
     // Populate the data for the students array
     for (int i = 0; i < numStudents; i++)
     {
-        cout << "\nEnter student " << (i + 1) << "'s name: ";
+        cout << "\nStudent name: ";
         cin >> students[i].name;
 
-        cout << "\nEnter student " << (i + 1) << "'s ID number: ";
+        cout << "ID number: ";
         cin >> students[i].idNum;
 
         // Dynamically allocate the test scores array for the ith student
         students[i].tests = new double[numTestScores];
 
         // Enter the test scores for the ith student
-        double tempAverage = 0;
+        students[i].average = 0;
         for (int j = 0; j < numTestScores; j++)
         {
-            double tempScore;
-            cout << "\nEnter test score number " << (j + 1);
-            cin >> tempScore;
-            students[i].tests[j] = tempScore;
-            tempAverage += tempScore;
+            cout << "\tTest # " << (j + 1) << ": ";
+            cin >> students[i].tests[j];
+            students[i].average += students[i].tests[j];
         }
+        students[i].average /= numTestScores;
 
         // Calculate the grade of the student
         if (students[i].average >= 91)
@@ -117,5 +116,25 @@ int main()
         }
     }
 
+    // Display the data in the students array
+    for (int i = 0; i < numStudents; i++)
+    {
+        cout << "\n\nStudent name: " << students[i].name;
+        cout << "\nID number: " << students[i].idNum;
+        cout << "\nAverage test score: " << students[i].average;
+        cout << "\nGrade: " << students[i].grade;
+    }
+
+    // Deallocate dynamically created memory
+    for (int i = 0; i < numStudents; i++)
+    {
+        delete [] students[i].tests;
+        students[i].tests = nullptr;
+    }
+
+    delete [] students;
+    students = nullptr;
+
+    system("pause");
     return 0;
 }
