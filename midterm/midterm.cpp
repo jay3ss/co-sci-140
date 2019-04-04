@@ -62,7 +62,7 @@ int main()
     cin >> numStudents;
 
     cout << "How many test scores do you have per student? ";
-    cin << numTestScores;
-    
+    cin >> numTestScores;
+
     return 0;
 }
