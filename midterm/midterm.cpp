@@ -53,3 +53,9 @@ struct Student
     double average;         // Average test score
     char grade;             // Course grade
 };
+
+int main()
+{
+
+    return 0;
+}
