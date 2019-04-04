@@ -54,6 +54,9 @@ struct Student
     char grade;             // Course grade
 };
 
+// Enum for the lowest criteria for grades
+enum class Grade { A = 91, B = 81, C =  71, D = 61};
+
 int main()
 {
     int numStudents, numTestScores;
@@ -61,8 +64,58 @@ int main()
     cout << "How many students do you have? ";
     cin >> numStudents;
 
-    cout << "How many test scores do you have per student? ";
+    cout << "\nHow many test scores do you have per student? ";
     cin >> numTestScores;
+
+    // Create the Student array
+    Student* students = nullptr;
+    students = new Student[numStudents];
+
+    // Populate the data for the students array
+    for (int i = 0; i < numStudents; i++)
+    {
+        cout << "\nEnter student " << (i + 1) << "'s name: ";
+        cin >> students[i].name;
+
+        cout << "\nEnter student " << (i + 1) << "'s ID number: ";
+        cin >> students[i].idNum;
+
+        // Dynamically allocate the test scores array for the ith student
+        students[i].tests = new double[numTestScores];
+
+        // Enter the test scores for the ith student
+        double tempAverage = 0;
+        for (int j = 0; j < numTestScores; j++)
+        {
+            double tempScore;
+            cout << "\nEnter test score number " << (j + 1);
+            cin >> tempScore;
+            students[i].tests[j] = tempScore;
+            tempAverage += tempScore;
+        }
+
+        // Calculate the grade of the student
+        if (students[i].average >= 91)
+        {
+            students[i].grade = 'A';
+        }
+        else if (students[i].average >= 81)
+        {
+            students[i].grade = 'B';
+        }
+        else if (students[i].average >= 71)
+        {
+            students[i].grade = 'C';
+        }
+        else if (students[i].average >= 61)
+        {
+            students[i].grade = 'D';
+        }
+        else
+        {
+            students[i].grade = 'F';
+        }
+    }
 
     return 0;
 }
