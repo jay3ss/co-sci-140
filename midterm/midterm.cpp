@@ -39,3 +39,17 @@
 
 // Input Validation: Be sure all the data for each student is entered. Do not
 // accept negative numbers for any test score.
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Structure for holding information about a student
+struct Student
+{
+    string name;            // Student name
+    unsigned int idNum;     // Student ID number
+    double* tests;          // Pointer to an array of test scores
+    double average;         // Average test score
+    char grade;             // Course grade
+};
