@@ -61,10 +61,10 @@ int main()
 {
     int numStudents, numTestScores;
 
-    cout << "How many students do you have? ";
+    cout << "How many students? ";
     cin >> numStudents;
 
-    cout << "How many test scores do you have per student? ";
+    cout << "How many tests per student? ";
     cin >> numTestScores;
 
     // Create the Student array
