@@ -75,7 +75,7 @@ int main()
     for (int i = 0; i < numStudents; i++)
     {
         cout << "\nStudent name: ";
-        cin >> students[i].name;
+        getline(cin, students[i].name);
 
         cout << "ID number: ";
         cin >> students[i].idNum;
