@@ -39,6 +39,7 @@
 
 // Input Validation: Be sure all the data for each student is entered. Do not
 // accept negative numbers for any test score.
+#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -53,6 +54,13 @@ struct Student
     double average;         // Average test score
     char grade;             // Course grade
 };
+
+// Function prototypes
+void getStudentData(Student&, int);
+char letterGrade(double);
+void setGrades(Student&, int);
+void displayStudents(Student[], int);
+void deallocateTests(Student[], int);
 
 // Enum for the lowest criteria for grades
 enum class Grade { A = 91, B = 81, C =  71, D = 61};
@@ -74,49 +82,83 @@ int main()
     // Populate the data for the students array
     for (int i = 0; i < numStudents; i++)
     {
-        cout << "\nStudent name: ";
-        getline(cin, students[i].name);
-
-        cout << "ID number: ";
-        cin >> students[i].idNum;
-
-        // Dynamically allocate the test scores array for the ith student
-        students[i].tests = new double[numTestScores];
-
-        // Enter the test scores for the ith student
-        students[i].average = 0;
-        for (int j = 0; j < numTestScores; j++)
-        {
-            cout << "\tTest # " << (j + 1) << ": ";
-            cin >> students[i].tests[j];
-            students[i].average += students[i].tests[j];
-        }
-        students[i].average /= numTestScores;
-
-        // Calculate the grade of the student
-        if (students[i].average >= 91)
-        {
-            students[i].grade = 'A';
-        }
-        else if (students[i].average >= 81)
-        {
-            students[i].grade = 'B';
-        }
-        else if (students[i].average >= 71)
-        {
-            students[i].grade = 'C';
-        }
-        else if (students[i].average >= 61)
-        {
-            students[i].grade = 'D';
-        }
-        else
-        {
-            students[i].grade = 'F';
-        }
+        getStudentData(students[i], numTestScores);
     }
 
     // Display the data in the students array
+    displayStudents(students, numStudents);
+
+    // Deallocate dynamically created memory
+    deallocateTests(students, numStudents);
+
+    delete [] students;
+    students = nullptr;
+
+    system("pause");
+    return 0;
+}
+
+void getStudentData(Student &student, int numTests)
+{
+    cout << "\nStudent name: ";
+    cin.ignore();
+    getline(cin, student.name);
+
+    cout << "ID number: ";
+    cin >> student.idNum;
+
+    // Dynamically allocate the test scores array for the ith student
+    student.tests = new double[numTests];
+
+    // Enter the test scores for the ith student
+    setGrades(student, numTests);
+
+    // Calculate the grade of the student
+    student.grade = letterGrade(student.average);
+}
+
+void setGrades(Student& student, int numTests)
+{
+    student.average = 0;
+    for (int i = 0; i < numTests; i++)
+    {
+        cout << "\tTest # " << (i + 1) << ": ";
+        cin >> student.tests[i];
+        student.average += student.tests[i];
+    }
+    student.average /= numTests;
+}
+
+char letterGrade(double numGrade)
+{
+    char letGrade;
+    if (numGrade >= 91)
+    {
+        letGrade = 'A';
+    }
+    else if (numGrade >= 81)
+    {
+        letGrade = 'B';
+    }
+    else if (numGrade >= 71)
+    {
+        letGrade = 'C';
+    }
+    else if (numGrade >= 61)
+    {
+        letGrade = 'D';
+    }
+    else
+    {
+        letGrade = 'F';
+    }
+
+    return letGrade;
+}
+
+void displayStudents(Student students[], int numStudents)
+{
+    cout << setprecision(3);
     for (int i = 0; i < numStudents; i++)
     {
         cout << "\n\nStudent name: " << students[i].name;
@@ -124,17 +166,13 @@ int main()
         cout << "\nAverage test score: " << students[i].average;
         cout << "\nGrade: " << students[i].grade;
     }
+}
 
-    // Deallocate dynamically created memory
+void deallocateTests(Student students[], int numStudents)
+{
     for (int i = 0; i < numStudents; i++)
     {
         delete [] students[i].tests;
         students[i].tests = nullptr;
     }
-
-    delete [] students;
-    students = nullptr;
-
-    system("pause");
-    return 0;
 }
