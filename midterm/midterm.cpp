@@ -61,6 +61,12 @@ char letterGrade(double);
 void setGrades(Student&, int);
 void displayStudents(Student[], int);
 void deallocateTests(Student[], int);
+bool isValid(string);
+bool isValid(int);
+bool isValid(double);
+string getValidString(string);
+unsigned int getValidUnsignedInt(string);
+double getValidDouble(string);
 
 // Enum for the lowest criteria for grades
 enum class Grade { A = 91, B = 81, C =  71, D = 61};
@@ -100,12 +106,12 @@ int main()
 
 void getStudentData(Student &student, int numTests)
 {
-    cout << "\nStudent name: ";
     cin.ignore();
-    getline(cin, student.name);
+    cout << "\nStudent name: ";
+    student.name = getValidString("Please enter a name: ");
 
     cout << "ID number: ";
-    cin >> student.idNum;
+    student.idNum = getValidUnsignedInt("Enter 0 or greater: ");
 
     // Dynamically allocate the test scores array for the ith student
     student.tests = new double[numTests];
@@ -123,7 +129,7 @@ void setGrades(Student& student, int numTests)
     for (int i = 0; i < numTests; i++)
     {
         cout << "\tTest # " << (i + 1) << ": ";
-        cin >> student.tests[i];
+        student.tests[i] = getValidDouble("Enter 0 or greater: ");
         student.average += student.tests[i];
     }
     student.average /= numTests;
@@ -158,7 +164,7 @@ char letterGrade(double numGrade)
 
 void displayStudents(Student students[], int numStudents)
 {
-    cout << setprecision(3);
+    cout << setprecision(2) << fixed;
     for (int i = 0; i < numStudents; i++)
     {
         cout << "\n\nStudent name: " << students[i].name;
@@ -175,4 +181,63 @@ void deallocateTests(Student students[], int numStudents)
         delete [] students[i].tests;
         students[i].tests = nullptr;
     }
+}
+
+bool isValid(string str)
+{
+    return str != "";
+}
+
+bool isValid(int num)
+{
+    return num >= 0;
+}
+
+bool isValid(double num)
+{
+    return num >= 0;
+}
+
+string getValidString(string errMsg)
+{
+    string str;
+
+    cin.ignore();
+    getline(cin, str);
+
+    while (!isValid(str))
+    {
+        cout << errMsg;
+        getline(cin, str);
+    }
+
+    return str;
+}
+
+unsigned int getValidUnsignedInt(string errMsg)
+{
+    int num;
+    cin >> num;
+
+    while (!isValid(num))
+    {
+        cout << errMsg;
+        cin >> num;
+    }
+    return static_cast<unsigned int>(num);
+}
+
+double getValidDouble(string errMsg)
+{
+    double num;
+    cin >> num;
+
+    while (!isValid(num))
+    {
+        cout << errMsg;
+        cin >> num;
+    }
+    return num;
+
+    return num;
 }
