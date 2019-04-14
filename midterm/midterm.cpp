@@ -5,7 +5,7 @@
 // Write a program that uses a structure to store the following data:
 //
 // Member Name         | Description
-//------------------------------------
+//---------------------|--------------
 // Name                | Idnum
 // Tests               | Average
 // Grade               | Student name
