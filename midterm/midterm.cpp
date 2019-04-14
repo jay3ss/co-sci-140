@@ -24,7 +24,7 @@
 // structure. The course grade should be computed on the basis of the following
 // grading scale:
 //
-// Average Test Grage | Course Grade
+// Average Test Grade | Course Grade
 //------------------------------------
 // 91-100             | A
 // 81-90              | B
@@ -65,11 +65,12 @@ bool isValid(string);
 bool isValid(int);
 bool isValid(double);
 string getValidString(string);
+int getValidInt(string);
 unsigned int getValidUnsignedInt(string);
 double getValidDouble(string);
 
 // Enum for the lowest criteria for grades
-enum class Grade { A = 91, B = 81, C =  71, D = 61};
+// enum class Grade { A = 91, B = 81, C =  71, D = 61};
 
 int main()
 {
@@ -104,6 +105,11 @@ int main()
     return 0;
 }
 
+// getStudentData
+// Prompts the user to enter validated data for a Student struct
+//
+// @param student: reference to a Student struct
+// @return Nothing
 void getStudentData(Student &student, int numTests)
 {
     cin.ignore();
@@ -123,9 +129,19 @@ void getStudentData(Student &student, int numTests)
     student.grade = letterGrade(student.average);
 }
 
+// setGrades
+// Prompts the user to enter test grades for the tests array and validates it.
+// Then, the average of the tests is calculated and saved in the average
+// attribute.
+//
+// @param student: reference to a Student struct
+// @return Nothing
 void setGrades(Student& student, int numTests)
 {
     student.average = 0;
+    // Go through each element in the tests array and prompt the user to enter
+    // a test score. Validate the test score and save it. Add each test score
+    // to the average and then divide it by the number of tests (numTests)
     for (int i = 0; i < numTests; i++)
     {
         cout << "\tTest # " << (i + 1) << ": ";
@@ -135,33 +151,60 @@ void setGrades(Student& student, int numTests)
     student.average /= numTests;
 }
 
+// letterGrade
+// Converts a numerical grade to a letter grade using the following conversion
+//
+// Test Grade | Course Grade
+//------------------------------------
+// 91-100             | A
+// 81-90              | B
+// 71-80              | C
+// 61-70              | D
+// 60 or below        | F
+//
+// @param numGrade: a non-negative number that corresponds to a test score
+// @return ltrGrade: A letter grade that is in the set
+//                   {'A', 'B', 'C', 'D', 'F'}
 char letterGrade(double numGrade)
 {
-    char letGrade;
+    char ltrGrade;
     if (numGrade >= 91)
     {
-        letGrade = 'A';
+        ltrGrade = 'A';
     }
     else if (numGrade >= 81)
     {
-        letGrade = 'B';
+        ltrGrade = 'B';
     }
     else if (numGrade >= 71)
     {
-        letGrade = 'C';
+        ltrGrade = 'C';
     }
     else if (numGrade >= 61)
     {
-        letGrade = 'D';
+        ltrGrade = 'D';
     }
     else
     {
-        letGrade = 'F';
+        ltrGrade = 'F';
     }
 
-    return letGrade;
+    return ltrGrade;
 }
 
+// displayStudents
+// Displays the data in a Student array. The data is displayed in the following
+// format
+//
+// Student name:  Bob
+// ID number: 123
+// Average test score: 88.00
+// Grade: B
+//
+// Student name:  Tina
+// ID number: 234
+// Average test score: 88.00
+// Grade: B
 void displayStudents(Student students[], int numStudents)
 {
     cout << setprecision(2) << fixed;
@@ -174,6 +217,15 @@ void displayStudents(Student students[], int numStudents)
     }
 }
 
+// deallocateTests
+// Deallocates the tests pointer for each Student struct in the students
+//
+// @param students: an array of Student structs
+// @param numStudents: the number of elements in the students parameter
+// @return Nothing
+//
+// Side effects: the tests pointer in every element of the students array
+//               will be deallocated and point to NULL
 void deallocateTests(Student students[], int numStudents)
 {
     for (int i = 0; i < numStudents; i++)
@@ -183,26 +235,49 @@ void deallocateTests(Student students[], int numStudents)
     }
 }
 
+// isValid
+// Determines if a string is not empty. If the string isn't empty, it returns
+// true and false otherwise
+//
+// @param str: string to be examined
+// @return True if str isn't empty, false otherwise
 bool isValid(string str)
 {
     return str != "";
 }
 
+// isValid
+// Determines if a number is non-negative. If the number isn't non-negative
+// it returns true and false otherwise
+//
+// @param num: number to be examined
+// @return True if num isn't non-negative, false otherwise
 bool isValid(int num)
 {
     return num >= 0;
 }
 
+// isValid
+// Determines if a number is non-negative. If the number isn't non-negative
+// it returns true and false otherwise
+//
+// @param num: number to be examined
+// @return True if num isn't non-negative, false otherwise
 bool isValid(double num)
 {
     return num >= 0;
 }
 
+// getValidString
+// Gets a string from the user then validates the string.
+//
+// @param errMsg: The error message to be printed to the screen when an invalid
+//                string is entered by the user
+// @return str: a validated (non-empty) string
 string getValidString(string errMsg)
 {
     string str;
 
-    cin.ignore();
     getline(cin, str);
 
     while (!isValid(str))
@@ -214,7 +289,13 @@ string getValidString(string errMsg)
     return str;
 }
 
-unsigned int getValidUnsignedInt(string errMsg)
+// getValidInt
+// Gets a int from the user then validates the int.
+//
+// @param errMsg: The error message to be printed to the screen when an invalid
+//                int is entered by the user
+// @return num: a validated (non-negative) int
+int getValidInt(string errMsg)
 {
     int num;
     cin >> num;
@@ -224,9 +305,28 @@ unsigned int getValidUnsignedInt(string errMsg)
         cout << errMsg;
         cin >> num;
     }
+
+    return num;
+}
+
+// getValidUnsignedInt
+// Gets a int from the user then validates the int.
+//
+// @param errMsg: The error message to be printed to the screen when an invalid
+//                int is entered by the user
+// @return num: a validated (non-negative) unisigned int
+unsigned int getValidUnsignedInt(string errMsg)
+{
+    int num = getValidInt(errMsg);
     return static_cast<unsigned int>(num);
 }
 
+// getValidDouble
+// Gets a double from the user then validates the int.
+//
+// @param errMsg: The error message to be printed to the screen when an invalid
+//                double is entered by the user
+// @return num: a validated (non-negative) double
 double getValidDouble(string errMsg)
 {
     double num;
@@ -237,7 +337,6 @@ double getValidDouble(string errMsg)
         cout << errMsg;
         cin >> num;
     }
-    return num;
 
     return num;
 }
