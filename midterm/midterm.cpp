@@ -56,21 +56,36 @@ struct Student
 };
 
 // Function prototypes
+// Prompts the user to enter validated data for a Student struct
 void getStudentData(Student&, int);
-char letterGrade(double);
+// Prompts the user to enter test grades for the tests array and validates it.
+// Then, the average of the tests is calculated and saved in the average
+// attribute.
 void setGrades(Student&, int);
+// Converts a numerical grade to a letter grade using the following conversion
+char letterGrade(double);
+// Displays the data in a Student array. The data is displayed in the following
+// format
 void displayStudents(Student[], int);
+// Deallocates the tests pointer for each Student struct in the students
 void deallocateTests(Student[], int);
+// Determines if a string is empty. If the string is empty, it returns
+// true and false otherwise
 bool isEmpty(string);
+// Determines if a number is non-negative. If the number isn't non-negative
+// it returns true and false otherwise
 bool isValid(int);
+// Determines if a number is non-negative. If the number isn't non-negative
+// it returns true and false otherwise
 bool isValid(double);
+// Gets a string from the user then validates the string.
 string getValidString(string);
+// Gets a int from the user then validates the int
 int getValidInt(string);
+// Gets an unsigned int from the user then validates the int
 unsigned int getValidUnsignedInt(string);
+// Gets a double from the user then validates the int
 double getValidDouble(string);
-
-// Enum for the lowest criteria for grades
-// enum class Grade { A = 91, B = 81, C =  71, D = 61};
 
 int main()
 {
@@ -310,7 +325,7 @@ int getValidInt(string errMsg)
 }
 
 // getValidUnsignedInt
-// Gets a int from the user then validates the int.
+// Gets an unsigned int from the user then validates the int.
 //
 // @param errMsg: The error message to be printed to the screen when an invalid
 //                int is entered by the user
