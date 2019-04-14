@@ -61,7 +61,7 @@ char letterGrade(double);
 void setGrades(Student&, int);
 void displayStudents(Student[], int);
 void deallocateTests(Student[], int);
-bool isValid(string);
+bool isEmpty(string);
 bool isValid(int);
 bool isValid(double);
 string getValidString(string);
@@ -235,15 +235,15 @@ void deallocateTests(Student students[], int numStudents)
     }
 }
 
-// isValid
-// Determines if a string is not empty. If the string isn't empty, it returns
+// isEmpty
+// Determines if a string is empty. If the string is empty, it returns
 // true and false otherwise
 //
 // @param str: string to be examined
-// @return True if str isn't empty, false otherwise
-bool isValid(string str)
+// @return True if str is empty, false otherwise
+bool isEmpty(string str)
 {
-    return str != "";
+    return str == "";
 }
 
 // isValid
@@ -272,7 +272,7 @@ bool isValid(double num)
 // Gets a string from the user then validates the string.
 //
 // @param errMsg: The error message to be printed to the screen when an invalid
-//                string is entered by the user
+//                (empty) string is entered by the user
 // @return str: a validated (non-empty) string
 string getValidString(string errMsg)
 {
@@ -280,7 +280,7 @@ string getValidString(string errMsg)
 
     getline(cin, str);
 
-    while (!isValid(str))
+    while (isEmpty(str))
     {
         cout << errMsg;
         getline(cin, str);
