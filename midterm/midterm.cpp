@@ -17,7 +17,7 @@
 // students there are. It should then dynamically allocate an array of
 // structures. Each structure’s Tests member should point to a dynamically
 // allocated array that will hold the test scores.
-
+//
 // After the arrays have been dynamically allocated, the program should ask for
 // the ID number and all the test scores for each student. The average test
 // score should be calculated and stored in the average member of each
