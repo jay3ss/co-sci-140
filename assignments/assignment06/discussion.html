@@ -1,0 +1,144 @@
+<ol>
+    <!--
+        1.  Inheritance and polymorphism, be succinct and to the point.
+    -->
+    <li>
+        <dl>
+            <dt>Inheritance</dt>
+            <dd>
+                Allows one class to be based on another class, gaining the
+                member variables and methods of the inherited class while
+                creating new member variables and methods of its own.
+                Inheritance allows programmers to define "is-a" relationships
+                between classes. For example, a programmer can make an
+                <code>Animal</code> class that implements basic animal traits
+                and behaviors. Since a dog is an animal, the programmer can
+                create a new <code>Dog</code> class that inherits from the
+                <code>Animal</code> class (a dog <em>is an</em> animal) and
+                gets the traits and behaviors of an animal "for free."
+            </dd>
+            <dt>Polymorphism</dt>
+            <dd>
+                Allows a programmer to present the same interface to different
+                types of objects (in C++'s case, references and pointers
+                <em>to</em> the objects). An example is with the
+                <code>Animal</code> and <code>Dog</code> classes. If a function
+                <code>pet()</code> expected a reference to an object of type
+                <code>Animal</code>, then a reference to an object of type
+                <code>Dog</code> could be passed to <code>pet</code> because
+                a dog <em>is an</em> animal.
+            </dd>
+        </dl>
+    </li>
+    <!--
+        2. Explain and use static members of a class; be succinct and to the point.
+    -->
+    <li>
+        <p>
+            A shallow copy of dynamic data will <em>only</em> copy a pointer to
+            dynamically allocated data. If a programmer creates a class that
+            dynamically allocates data, then the programmer needs to implement
+            a copy constructor so that when a new copy is made the copy
+            constructor performs a <em>deep copy</em>. A deep copy is when the
+            data in the dynamically allocated memory is copied from the
+            original object to the new one. Otherwise, both objects point to
+            the same memory address.
+        </p>
+    </li>
+    <!--
+        3. Differentiate between compile-time and run-time binding of data as
+        they relate to virtual functions and polymorphism; be succinct and to
+        the point.
+    -->
+        <dl>
+            <dt>Binding</dt>
+            <dd>
+                The process of matching function calls with the correct
+                function.
+            </dd>
+            <dt>Compile-time binding</dt>
+            <dd>
+                Compile-time (or <em>static</em>) binding is the process of
+                matching function calls with functions at compile time. This
+                can cause unexpected behavior with polymorphism and inherited
+                classes overriding inherited methods. If a programmer isn't
+                careful, then their programs will behave in unintended ways.
+            </dd>
+            <dt>Runtime binding</dt>
+            <dd>
+                Runtime (or <em>dynamic</em>) binding is the process of
+                mathcing function calls with functions at runtime. This is
+                accomplished by making a function <code>virtual</code>. When
+                using dynamic binding, function calls will be matched the
+                appropriate functions at runtime. By using <code>virtual</code>
+                functions, the compiler knows that functions responsible for
+                the functions calls are determined by the type of object that
+                is making the call. Using dynamic binding can allow a
+                programmer to make full use of polymorphism as now their
+                code can call overridden functions in derived classes instead
+                of relying on the parent class's functions.
+            </dd>
+        </dl>
+    <li>
+</ol>
+
+<p id="references"><strong>References</strong></p>
+
+<ol>
+    <li>
+        <p id="paxdiablo">
+            <a href="https://stackoverflow.com/a/1031385/3562890">
+                What is polymorphism, what is it for, and how is it used?
+            </a>
+        </p>
+    </li>
+</ol>
+
+<table>
+    <tr>
+        <th><strong>Criterion: Score</strong></th>
+        <th><strong>Rationale</strong></th>
+    </tr>
+    <tr>
+        <td>Original response: <strong>3 / 4</strong></td>
+        <td>Posted an original response, but did not follow the format (bullets).</td>
+    </tr>
+    <tr>
+        <td>Specific with new vocab/key words: <strong>3 / 4</strong></td>
+        <td>Responses are specific, but no too much new vocabulary/key words.</td>
+    </tr>
+    <tr>
+        <td>Valuable information provided: <strong>3 / 4</strong></td>
+        <td>Good information.</td>
+    </tr>
+    <tr>
+        <td><strong>Total: 10 / 12</strong></td>
+        <td></td>
+    </tr>
+</table>
+
+<p></p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+    <tbody>
+        <tr>
+            <td style="width: 50%;"><strong>Criterion: Score</strong></td>
+            <td style="width: 50%;"><strong>Rationale</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Original Response: <strong>3 / 4</strong></td>
+            <td style="width: 50%;">Posted an original response, but did not follow the format (bullets).</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Specific with new vocab/key words: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Good information about bounds checking and use of key words/vocabulary.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Valuable information provided: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Great information.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;"><strong>Total: 11 / 12</strong></td>
+            <td style="width: 50%;"></td>
+        </tr>
+    </tbody>
+</table>
