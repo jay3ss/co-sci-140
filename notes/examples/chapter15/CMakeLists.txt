@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-cmake_minimum_required(VERSION 3.5)
-project(chapter15examples)
-set(CMAKE_CXX_STANDARD 11)
-
-add_executable(multipleinheritance 
-    multipleInheritance.cpp
-    BaseClasses.h)
-=======
 cmake_minimum_required(VERSION 3.10.1)
 project(chapter15notes)
 set(CMAKE_CXX_STANDARD 11)
@@ -38,4 +29,3 @@ set(FINAL_EXAM_V2_SRCS
 add_executable(finalexamtestv2
     finalExamTestV2.cpp
     ${FINAL_EXAM_V2_SRCS})
->>>>>>> 42f0efcece9fbbd68122391370a15d6bec99a0cb
