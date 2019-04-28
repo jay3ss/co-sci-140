@@ -11,7 +11,15 @@ private:
     long int length;
 public:
     Rectangle(const long int w = 0, const long int l = 0) : width(w), length(l)
-    { calcArea(); }
+        { calcArea(); }
+    void setWidth(const long int w)
+        { width = w; }
+    void setLength(const long int l)
+        { length = l; }
+    long int getWidth() const
+        { return width; }
+    long int getLength() const
+        { return length; }
     void calcArea();
 };
 
