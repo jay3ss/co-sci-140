@@ -29,3 +29,21 @@ set(FINAL_EXAM_V2_SRCS
 add_executable(finalexamtestv2
     finalExamTestV2.cpp
     ${FINAL_EXAM_V2_SRCS})
+
+# Test for the CurvedActivity V1 class
+set(CURVED_ACTIVITY_V2_SRCS 
+    GradedActivityV3.cpp
+    CurvedActivity.h)
+add_executable(testcurvedactivityv1
+    testCurvedActivityV1.cpp
+    ${CURVED_ACTIVITY_V2_SRCS})
+
+# Test for the CurvedActivity V1 class
+set(PASS_FAIL_EXAM_V1_SRCS
+    GradedActivityV3.cpp
+    PassFailActivityV1.cpp
+    PassFailExamV1.cpp
+    CurvedActivity.h)
+add_executable(testpassfailexamv1
+    testPassFailExamV1.cpp
+    ${PASS_FAIL_EXAM_V1_SRCS})
