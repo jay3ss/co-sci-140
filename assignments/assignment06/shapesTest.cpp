@@ -4,7 +4,6 @@
 //
 // A driver program that defines a Circle object and a Rectangle object.
 // Demonstrates that each object properly calculates and reports its area.
-#include <iomanip>
 #include <iostream>
 #include "BasicShape.h"
 #include "Circle.h"
@@ -42,7 +41,6 @@ int main()
 
     cout << endl;
 
-    cout << setprecision(2) << fixed;
     cout << "The circle is centered at (" << circle.getCenterX()
          << ", " << circle.getCenterY() << ")." << endl
          << "The circle's area is " << circle.getArea() << " square units.\n\n";
