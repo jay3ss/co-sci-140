@@ -24,8 +24,8 @@ int main()
     cout << "What is the x-coordinate of the center of the circle? ";
     cin >> centerX;
 
-    cout << "What is the x-coordinate of the center of the circle? ";
-    cin >> centerX;
+    cout << "What is the y-coordinate of the center of the circle? ";
+    cin >> centerY;
 
     cout << "What is the radius of the circle? ";
     cin >> radius;
@@ -40,8 +40,17 @@ int main()
 
     Rectangle rectangle(length, width);
 
-    displayShape(circle);
-    displayShape(rectangle);
+    cout << endl;
+
+    cout << setprecision(2) << fixed;
+    cout << "The circle is centered at (" << circle.getCenterX()
+         << ", " << circle.getCenterY() << ")." << endl
+         << "The circle's area is " << circle.getArea() << " square units.\n\n";
+
+    cout << "The rectangle's length and width are " << rectangle.getLength()
+         << " units and " << rectangle.getWidth() << " units, respectively.\n"
+         << "The rectangle's area is " << rectangle.getArea()
+         << " square units.\n";
 
     return 0;
 }
