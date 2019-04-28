@@ -7,10 +7,10 @@
 class Rectangle : public BasicShape
 {
 private:
-    long int width;
     long int length;
+    long int width;
 public:
-    Rectangle(const long int w = 0, const long int l = 0) : width(w), length(l)
+    Rectangle(const long int l = 0, const long int w = 0) : length(w), width(l)
         { calcArea(); }
     void setWidth(const long int w)
         { width = w; }
