@@ -18,18 +18,12 @@ public:
            this value */
     Rectangle(const long int l = 0, const long int w = 0) : length(w), width(l)
         { calcArea(); }
-    /** Sets the width of the rectangle
-     @param w The width of the rectangle
-     @post The width member is set to the w parameter */
-    void setWidth(const long int w)
-        { width = w; }
-    /** Sets the length of the rectangle
-     @param l The length of the rectangle
-     @post The length member is set to the l parameter */
-    void setLength(const long int l)
-        { length = l; }
+    /** Returns the width of the rectangle
+     @return The width of the rectange */
     long int getWidth() const
         { return width; }
+    /** Returns the length of the rectangle
+     @return The length of the rectange */
     long int getLength() const
         { return length; }
     /** Calculates the area of the rectangle and sets the area member to this

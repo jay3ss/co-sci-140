@@ -11,8 +11,6 @@
 
 using namespace std;
 
-void displayShape(BasicShape&);
-
 int main()
 {
 
@@ -51,9 +49,4 @@ int main()
          << " square units.\n";
 
     return 0;
-}
-
-void displayShape(BasicShape &shape)
-{
-    cout << shape.getArea() << " square units\n";
 }
