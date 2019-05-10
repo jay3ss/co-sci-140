@@ -45,6 +45,13 @@ catch(Division::DivisionByZeroException)
 }
 // The program can continue because the exception was caught
         </pre>
+
+        <p>
+            Multiple exceptions can be caught by using multiple catch blocks.
+            Also, exceptions can be rethrown using the <code>throw</code>
+            statement inside of a catch block so that an outer throw block
+            can catch the exception and recover.
+        </p>
     </li>
     <!--
         2. Explain the difference between a function template and a class
