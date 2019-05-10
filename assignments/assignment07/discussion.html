@@ -59,7 +59,64 @@ catch(Division::DivisionByZeroException)
     -->
     <li>
         <p>
+            A <strong>function template</strong> is a generic function that
+            allows a function to work with (almost) any data type. An example
+            is the absolute value function. One way to define an absolute value
+            function that works with multiple data types is to create multiple
+            overloaded functions. This works for a couple of data types, but
+            can quickly get out of hand. Therefore, by using a function
+            template, the function only has to be written (and tested!) once.
+            For example,
+        </p>
 
+        <pre>
+// Using overloaded functions
+int absval(int num)
+{
+    if (num &lt; 0)
+    {
+        return -num;
+    }
+    else
+    {
+        return num;
+    }
+}
+
+double absval(double num)
+{
+    if (num &lt; 0)
+    {
+        return -num;
+    }
+    else
+    {
+        return num;
+    }
+}
+
+// Using a function template
+template&lt;class T&gt;
+T absval(T num)
+{
+    if (num &lt; 0)
+    {
+        return -num;
+    }
+    else
+    {
+        return num;
+    }
+}
+        </pre>
+        <p>
+            Similar to function templates, <strong>class templates</strong>
+            allow generic classes to be created that work with multiple data
+            types instead of a bespoke class for each data type. An example is
+            with a list. A list stores data and this data is of the same data
+            type. Therefore, to store multiple data types multiple list classes
+            must be created. If, however, a class template is used then only
+            one <em>generic</em> list class will need to be created.
         </p>
     </li>
     <!--
