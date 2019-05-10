@@ -5,12 +5,50 @@
     -->
     <li>
         <p>
-
+            Many times, an <code></code> will be thrown when an error
+            occurs. If not handled, the exception will cause the program to
+            crash. To handle the exception, a
+            <code>try</code>-<code>catch</code> statement must be used to
+            capture the exception and to gracefully handle the error. The
+            exception that is thrown can be a string or a class. Both are
+            shown in the example below
         </p>
+
+        <pre>
+try
+{
+    // If an exception is thrown in the try block, then any
+    // code remaining to be executed after the exception is
+    // thrown is skipped and the catch block is executed
+    quotient = divide(num1, num2);
+    cout << "The quotient is " << quotient << endl;
+}
+catch (string exceptionString)
+{
+    // If the exception is a string, then this catch block
+    // will be executed
+    // If there is no exception, then this block is not executed
+    cout << exceptionString;
+}
+
+// Object-oriented method
+try
+{
+    // A division object is instantiated
+    Division divide(num1, num2);
+    cout << "The quotient is " << divide.quotient << endl;
+}
+catch(Division::DivisionByZeroException)
+{
+    // A DivisionByZeroException was thrown
+    cout << "Error: Division by zero was attempted.\n";
+}
+// The program can continue because the exception was caught
+        </pre>
     </li>
     <!--
-        2. Explain and use static members of a class; be succinct and to the
-           point.
+        2. Explain the difference between a function template and a class
+           template.
     -->
     <li>
         <p>
