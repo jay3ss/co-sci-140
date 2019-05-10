@@ -21,14 +21,14 @@ try
     // code remaining to be executed after the exception is
     // thrown is skipped and the catch block is executed
     quotient = divide(num1, num2);
-    cout << "The quotient is " << quotient << endl;
+    cout &lt;&lt; "The quotient is " &lt;&lt; quotient &lt;&lt; endl;
 }
 catch (string exceptionString)
 {
     // If the exception is a string, then this catch block
     // will be executed
     // If there is no exception, then this block is not executed
-    cout << exceptionString;
+    cout &lt;&lt; exceptionString;
 }
 
 // Object-oriented method
@@ -36,12 +36,12 @@ try
 {
     // A division object is instantiated
     Division divide(num1, num2);
-    cout << "The quotient is " << divide.quotient << endl;
+    cout &lt;&lt; "The quotient is " &lt;&lt; divide.quotient &lt;&lt; endl;
 }
 catch(Division::DivisionByZeroException)
 {
     // A DivisionByZeroException was thrown
-    cout << "Error: Division by zero was attempted.\n";
+    cout &lt;&lt; "Error: Division by zero was attempted.\n";
 }
 // The program can continue because the exception was caught
         </pre>
