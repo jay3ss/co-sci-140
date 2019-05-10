@@ -108,6 +108,12 @@ T absval(T num)
         return num;
     }
 }
+
+// Calling the absval function is similar to calling a
+// "regular" function
+int intAbsVal = absval(-3);
+double dblAbsVal = absval(-6.0);
+
         </pre>
         <p>
             Similar to function templates, <strong>class templates</strong>
@@ -118,6 +124,22 @@ T absval(T num)
             must be created. If, however, a class template is used then only
             one <em>generic</em> list class will need to be created.
         </p>
+
+        <pre>
+// To instantiate a templated class, you need to let the
+// compiler know what type you're using
+// Assuming the List class is defined as
+template&lt;class T&gt;
+class List
+{
+// ... implement List
+};
+
+// in main()
+
+List&lt;int&gt; intList;    // list of integers
+List&lt;double&gt; dblList; // list of doubles
+        </pre>
     </li>
     <!--
         3. Explain how to create an array of objects using template classes.
