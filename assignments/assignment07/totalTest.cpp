@@ -17,6 +17,7 @@ T total(const T numVals);
 
 int main()
 {
+    // Test how the templated total function works with integers
     int numIntVals;
     cout << "How many integer values do you wish to total? ";
     cin >> numIntVals;
@@ -24,6 +25,7 @@ int main()
     int intTotal = total(numIntVals);
     cout << "Total is " << intTotal << "\n\n";
 
+    // Test how the templated total function works with doubles
     double numDblVals;
     cout << "How many double values do you wish to total? ";
     cin >> numDblVals;
@@ -32,6 +34,9 @@ int main()
     cout << "Total is " << dblTotal << endl;
 }
 
+// Continues to prompt the user to enter a value until the desired number of
+// values has been entered (numVals). Return the total of all off the entered
+// values.
 template <class T>
 T total(const T numVals)
 {
