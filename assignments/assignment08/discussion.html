@@ -1,0 +1,165 @@
+<ol>
+    <!--
+        1. What is a self-referencing class?
+    -->
+    <li>
+        <p>
+            A self-referencing class is a class that points to (references
+            another object of the same type. For example, the head pointer in
+            the ListNode class given in the book.
+        </p>
+    </li>
+    <!--
+        2. What is the purpose of the node named "head" in a link list?
+    -->
+    <li>
+        <p>
+            The head pointer can be thought of as the foundation upon which the
+            linked list is built. Because linked lists don't support random
+            access, every node is accessed sequentially through the head
+            pointer. If the head pointer is somehow detached from the
+            rest of the nodes in the list, then they will become inaccessible
+            and lost forever never to be returned to the system again.
+        </p>
+    </li>
+    <!--
+        3. What are three types of lists? Give an example of each.
+    -->
+    <li>
+        <p>
+            The three types of lists given in the book are: singly linked
+            lists, doubly linked lists, and circularly linked lists.
+        </p>
+
+        <p>Examples:</p>
+        <ul>
+            <li>
+                Singly linked list: a todo list in which you move down the list
+                one item at a time and don't need to go back to previous items.
+            </li>
+            <li>
+                Doubly linked list: a todo list in which you multitask, so you
+                need to go up and down the list.
+            </li>
+            <li>
+                Circularly linked list: a list of players in a game
+                <a href="so">[2]</a>. The players take turns until the game is
+                over so the list must be traversed in a circular pattern.
+            </li>
+        </ul>
+    </li>
+    <!--
+        4. What is an advantage of using a linked list as a collection of
+           objects over using an array?
+    -->
+    <li>
+        <p>
+            Linked lists support an arbitrary number of objects and, unlike
+            arrays, the size doesn't need to be known ahead of time. Inserting
+            objects into the middle of a linked list is quite easy and only
+            requires finding the pointer to the previous node and swapping
+            pointers. Inserting data into the middle of an array, however,
+            requires moving every object that follows the insertion point.
+        </p>
+
+        <p>
+            Therefore, if you don't know the number of objects that you'll be
+            using or you will be making insertions into the middle then a
+            linked list may be the better choice.
+        </p>
+    </li>
+
+    <!--
+        5. What is an advantage of using an array as a collection of objects
+        over using an linked list?
+    -->
+    <li>
+        <p>
+            Arrays have constant read and write times (it doesn't matter how
+            many objects are in the array) while linked lists have read and
+            write times that are proportional to the number of objects that
+            they store. Therefore, if it is known ahead of time that many read
+            and write operations will need to be performed (and the array size
+            is known ahead of time too) then an array may be preferred over the
+            linked list.
+        </p>
+        <p>
+            The reasoning behind the quick access time for an array is that it
+            supports random access. If you want to access a certain element
+            (object) in the array, then you can use:
+        </p>
+        <pre>
+object = objects[index];
+        </pre>
+        <p>
+            However, a linked list must be traversed until the desired position
+            is reached (i.e., it must be read sequentially):
+        </p>
+        <pre>
+// From <a href="#carrano">[1]</a>
+ListNode* LinkedList::getNodeAt(int position) const
+{
+    if ((1 &lt; position) && (numObjects &gt; position))
+    {
+        // Custom exception class defined elsewhere
+        throw OutOfBoundsException();
+    }
+    ListNode* nodePtr = head;
+    for (int count = 1; count &lt; position; count++)
+    {
+        nodePtr = nodePtr->next;
+    }
+
+    return nodePtr;
+}
+        </pre>
+        <p>
+            Therefore, for a large enough list, this can consume many CPU
+            cycles and time.
+        </p>
+    </li>
+</ol>
+
+<p id="references"><strong>References</strong></p>
+
+<ol>
+    <li>
+        <p id="carrano">
+            [1] T. M. H. Frank M. Carrano, Data Abstraction & Problem Solving
+            with C++: Walls and Mirrors, Boston: Pearson, 2013.
+        </p>
+    </li>
+    <li>
+        <p id="so">
+            <a href="https://stackoverflow.com/a/3591438/3562890">
+                Andrew Cone - Stack Overflow
+            </a>
+        </p>
+    </li>
+</ol>
+
+<!-- For commenting others' answers -->
+<table style="border-collapse: collapse; width: 100%;" border="1">
+    <tbody>
+        <tr>
+            <td style="width: 50%;"><strong>Criterion: Score</strong></td>
+            <td style="width: 50%;"><strong>Rationale</strong></td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Original Response: <strong>3 / 4</strong></td>
+            <td style="width: 50%;">Posted an original response, but did not follow the format (bullets).</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Specific with new vocab/key words: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Good information about bounds checking and use of key words/vocabulary.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">Valuable information provided: <strong>4 / 4</strong></td>
+            <td style="width: 50%;">Great information.</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;"><strong>Total: 11 / 12</strong></td>
+            <td style="width: 50%;"></td>
+        </tr>
+    </tbody>
+</table>
