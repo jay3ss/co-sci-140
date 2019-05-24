@@ -2,8 +2,8 @@
 
 Node::Node(int num, Node* nextPtr)
 {
-    next_ = nextPtr;
     data_ = num;
+    next_ = nextPtr;
 }
 
 Node::~Node()
