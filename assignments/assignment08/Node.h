@@ -7,16 +7,16 @@ private:
     int data_;
     Node* next_;
 public:
-    Node(int num = 0, Node* nextPtr = nullptr);
+    Node(const int num = 0, Node* const nextPtr = nullptr);
     ~Node();
 
     // Getters
-    int data();
-    Node* next();
+    int data() const;
+    Node* next() const;
 
     // Setters
-    void data(int num);
-    void next(Node* nextPtr);
+    void data(const int num);
+    void next(Node* const nextPtr);
 };
 
 #endif // _NODE_H_

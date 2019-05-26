@@ -1,6 +1,6 @@
 #include "Node.h"
 
-Node::Node(int num, Node* nextPtr)
+Node::Node(const int num, Node* const nextPtr)
 {
     data_ = num;
     next_ = nextPtr;
@@ -11,23 +11,23 @@ Node::~Node()
 }
 
 // Getters
-int Node::data()
+int Node::data() const
 {
     return data_;
 }
 
-Node* Node::next()
+Node* Node::next() const
 {
     return next_;
 }
 
 // Setters
-void Node::data(int num)
+void Node::data(const int num)
 {
     data_ = num;
 }
 
-void Node::next(Node* nextPtr)
+void Node::next(Node* const nextPtr)
 {
     next_ = nextPtr;
 }
