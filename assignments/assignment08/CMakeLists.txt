@@ -8,6 +8,9 @@ add_library(node Node.cpp)
 add_library(intlist IntList.cpp)
 target_link_libraries(intlist node)
 
+add_executable(testnode testNode.cpp)
+target_link_libraries(testnode node)
+
 add_executable(intlisttest intListTest.cpp)
 target_link_libraries(intlisttest intlist)
 
