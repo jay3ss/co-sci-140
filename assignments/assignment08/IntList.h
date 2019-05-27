@@ -1,3 +1,6 @@
+// Joshua Saunders
+// CO SCI 140 (Section 15029) - Assignment 08
+// Due May 26, 2019
 #ifndef _INT_LIST_H_
 #define _INT_LIST_H_
 
@@ -10,7 +13,6 @@ class IntList
 {
 private:
     Node* head_;
-    int numElements;
 public:
     // Constructor
     IntList();
@@ -23,11 +25,6 @@ public:
     @param num The value to be appended to the end of the list */
     void append(int num);
 
-    /** Checks if the value is in the list
-    @param num The value to be checked
-    @return True if the list contains the value, false otherwise */
-    bool contains(int num);
-
     /** Displays the contents of the list */
     void display();
 
@@ -38,10 +35,6 @@ public:
     /** Determines if the list is empty or not
     @return True if the list is empty, false otherwise */
     bool isEmpty();
-
-    /** Returns the integer number of elements in the list
-    @return The integer number of elements in the list */
-    int length();
 
     /** Removes the first occurence of the value
     @param num The value to be removed from to the list

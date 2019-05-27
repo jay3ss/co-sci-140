@@ -1,3 +1,6 @@
+// Joshua Saunders
+// CO SCI 140 (Section 15029) - Assignment 08
+// Due May 26, 2019
 #include "Node.h"
 
 Node::Node(const int num, Node* const nextPtr)

@@ -11,7 +11,7 @@ target_link_libraries(intlist node)
 add_executable(testnode testNode.cpp)
 target_link_libraries(testnode node)
 
-add_executable(intlisttest intListTest.cpp)
-target_link_libraries(intlisttest intlist)
+add_executable(intlistmain intListMain.cpp)
+target_link_libraries(intlistmain intlist)
 
 message("Generated with build types: ${CMAKE_BUILD_TYPE}")

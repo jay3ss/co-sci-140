@@ -1,3 +1,6 @@
+// Joshua Saunders
+// CO SCI 140 (Section 15029) - Assignment 08
+// Due May 26, 2019
 #include "IntList.h"
 
 IntList::IntList()
@@ -44,25 +47,6 @@ void IntList::append(int num)
         // Add the node to the end of list
         nodePtr->next(newNodePtr);
     }
-}
-
-/** Checks if the value is in the list */
-bool IntList::contains(int num)
-{
-    // Traverse the list, checking if the value is in the list. If it is,
-    // return immediately
-    Node* nodePtr = head_;
-
-    while (nodePtr != nullptr)
-    {
-        if (nodePtr->data() == num)
-        {
-            return true;
-        }
-        nodePtr = nodePtr->next();
-    }
-    return false;
-
 }
 
 /** Displays the contents of the list */
@@ -119,9 +103,6 @@ bool IntList::isEmpty()
 {
     return head_ == nullptr;
 }
-
-/** Returns the integer number of elements in the list */
-int IntList::length(){ return -1; }
 
 /** Removes the first occurence of the value */
 bool IntList::remove(int num)

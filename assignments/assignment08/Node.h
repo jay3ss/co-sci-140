@@ -1,3 +1,6 @@
+// Joshua Saunders
+// CO SCI 140 (Section 15029) - Assignment 08
+// Due May 26, 2019
 #ifndef _NODE_H_
 #define _NODE_H_
 
