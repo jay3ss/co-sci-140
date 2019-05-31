@@ -15,13 +15,24 @@
 //
 // Test the functions by asking for a string in function main, then passing it
 // to them in the following order: reverse, lower, and upper.
-#include <cctype>
+#include <cstring>
 #include <iostream>
+#include "CharInput.hpp"
+#include "CaseModifier.h"
 
 using namespace std;
 
 int main()
 {
+	cout << "Enter a string: ";
+	char *input = CharInput::getline();
 
+	CaseModifier cm(input);
+
+	cout << "After a call to Reverse: " << cm.reverse() << endl
+		 << "After a call to Lower: "   << cm.lower()   << endl
+		 << "After a call to Upper: "   << cm.upper()   << endl;
+
+	system("pause");
     return 0;
 }
