@@ -1,3 +1,6 @@
+// Joshua Saunders
+// CO SCI 140 (Section 15029) - Final Exam
+// Due May 31, 2019
 /** @file CaseModifier.h Defines a class that modifies the capitalization of
 	a C-string */
 #ifndef _CASE_MODIFIER_H_

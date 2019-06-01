@@ -1,3 +1,6 @@
+// Joshua Saunders
+// CO SCI 140 (Section 15029) - Final Exam
+// Due May 31, 2019
 /** Class to get a C-string of unspecified size including spaces. Adapted from
 	the code given in the Chapter 10 Weekly WrapUp:
 	https://ilearn.laccd.edu/courses/70544/discussion_topics/690677 */
